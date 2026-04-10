@@ -301,14 +301,21 @@ Ont candidat mais n'ont pas pris de creneau Calendly.
     st.caption(f"Mise a jour : {format_date_fr(updated_at[:10])} a {updated_at[11:16]} UTC")
 
     # --- ONGLETS ---
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    # Calculer le nombre de "sans suite apres RDV"
+    sans_suite = df[
+        (df["calendly_event"].notna()) & (df["calendly_event"] != "") &
+        (df["lead_status"].isin(["NEW", "ATTEMPTED_TO_CONTACT", "BAD_TIMING", ""])) &
+        (df["statut"].isin(["a_appeler", "a_relancer", "recyclage"]))
+    ]
+    sans_suite_count = len(sans_suite)
+
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         f"🔥 Lead A",
         f"📞 Lead B",
         f"💡 Lead C",
         f"⚠️ A relancer",
         f"♻️ Recyclage",
-        "🎯 Sans RDV",
-        "🔍 Rechercher",
+        f"🎯 Sans suite apres RDV ({sans_suite_count})",
     ])
 
     with tab1:
@@ -337,27 +344,8 @@ Ont candidat mais n'ont pas pris de creneau Calendly.
         render_table(recyclage.sort_values("score", ascending=False))
 
     with tab6:
-        st.markdown('<div class="tab-desc-alert tab-desc">Ont rempli le formulaire de candidature mais n\'ont pas pris de RDV Calendly. Un simple appel pour proposer un creneau peut suffire a les convertir.</div>', unsafe_allow_html=True)
-        if "candidature_sans_rdv" in df.columns:
-            cand = df[
-                (df["candidature_sans_rdv"] == True) &
-                (df["statut"].isin(["a_appeler", "a_relancer", "recyclage"]))
-            ]
-            render_table(cand.sort_values("score", ascending=False))
-        else:
-            st.caption("Aucune donnee disponible.")
-
-    with tab7:
-        st.markdown('<div class="tab-desc">Rechercher un contact par nom, prenom ou email dans toute la base scoree (15 000+ contacts 1M+).</div>', unsafe_allow_html=True)
-        search = st.text_input("", placeholder="Tapez un nom, prenom ou email...")
-        if search and len(search) >= 2:
-            mask = (
-                df["prenom"].str.contains(search, case=False, na=False) |
-                df["nom"].str.contains(search, case=False, na=False) |
-                df["email"].str.contains(search, case=False, na=False)
-            )
-            results = df[mask].sort_values("score", ascending=False)
-            render_table(results.head(50))
+        st.markdown('<div class="tab-desc-alert tab-desc">Contacts qui ont pris un RDV Calendly (Diagnostic, Session Strategique, Plan d\'action 3M) mais dont le statut n\'a jamais progresse. Ils sont restes en "Tentative de contact", "Mauvais timing" ou "NEW". Angle d\'attaque : "on s\'etait parle le [date], je reviens vers vous..."</div>', unsafe_allow_html=True)
+        render_table(sans_suite.sort_values("score", ascending=False))
 
     # --- HISTORIQUE ---
     history_path = os.path.join(os.path.dirname(__file__), "..", "data", "scoring_history.json")
