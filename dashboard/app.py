@@ -69,9 +69,6 @@ def render_table(df_subset):
     display["CA"] = display["ca"].apply(
         lambda x: "10M+" if "10M" in str(x) else "1M-10M" if "1M" in str(x) else str(x)[:10]
     )
-    display["Proba"] = display["proba_conversion"].apply(
-        lambda x: f"{x:.0f}%" if pd.notna(x) and x > 0 else "-"
-    )
     display["Dernier contact"] = display["dernier_contact"].apply(format_date_fr)
     display["Date RDV"] = display["calendly_date"].apply(format_date_fr)
     display["Fiche contact"] = display["id"].apply(
@@ -80,7 +77,6 @@ def render_table(df_subset):
 
     cols_map = {
         "score": "Score",
-        "Proba": "Proba",
         "prenom": "Prenom",
         "nom": "Nom",
         "CA": "CA",
@@ -103,7 +99,6 @@ def render_table(df_subset):
         height=min(600, len(df_show) * 38 + 40),
         column_config={
             "Score": st.column_config.NumberColumn("Score", width="small"),
-            "Proba": st.column_config.TextColumn("Proba", width="small"),
             "Ev.": st.column_config.NumberColumn("Ev.", width="small"),
             "Guides": st.column_config.NumberColumn("Guides", width="small"),
             "Fiche contact": st.column_config.LinkColumn("Fiche contact", display_text="Ouvrir ↗", width="small"),
