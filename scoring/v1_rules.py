@@ -77,6 +77,12 @@ def get_contact_status(contact):
     if lead_status in DISQUALIFIED_STATUSES:
         return "exclu"
 
+    # Bad timing recent = ne pas rappeler
+    if lead_status == "BAD_TIMING":
+        days = _days_since(_prop(contact, "notes_last_contacted"))
+        if days is not None and days < 60:
+            return "exclu"  # Trop recent, laisser du temps
+
     # En suivi actif ? Verifier la fraicheur
     if lead_status in ACTIVE_FOLLOW_STATUSES:
         days = _days_since(_prop(contact, "notes_last_contacted"))
@@ -280,10 +286,15 @@ def score_signaux_commerciaux(contact):
         score += 5
         details.append("NEW + tunnel (+5)")
 
-    # Mauvais timing = etait interesse
+    # Mauvais timing = etait interesse, MAIS seulement si dernier contact > 60j
     if lead_status == "BAD_TIMING":
-        score += 5
-        details.append("Mauvais timing (+5)")
+        days_contact = _days_since(_prop(contact, "notes_last_contacted"))
+        if days_contact is not None and days_contact > 60:
+            score += 5
+            details.append("Mauvais timing >60j (+5)")
+        elif days_contact is None:
+            score += 5
+            details.append("Mauvais timing (+5)")
 
     # Source handraiser
     if _prop(contact, "source_outbound") == "handraiser":
