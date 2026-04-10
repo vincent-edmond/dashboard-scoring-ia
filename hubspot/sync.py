@@ -119,27 +119,53 @@ def run_scoring_pipeline(push_to_hubspot=True, train_ml=True):
             c["_proba_conversion"] = None
         print("  Modele non disponible, probas = None")
 
-    # 7. Push vers HubSpot
+    # 7. Push vers HubSpot (seulement les scores qui ont change)
     if push_to_hubspot:
-        print("\n[7/7] Push des scores dans HubSpot...")
+        print("\n[7/7] Push des scores modifies dans HubSpot...")
         updates = []
         now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
+        # Charger les anciens scores pour comparer
+        old_scores = {}
+        old_data_path = os.path.join(DATA_DIR, "last_scores.json")
+        if os.path.exists(old_data_path):
+            try:
+                with open(old_data_path, "r") as f:
+                    old_scores = json.load(f)
+            except Exception:
+                old_scores = {}
+
+        new_scores = {}
         for c in scored_contacts:
-            props = {
-                "score_ia": str(c["_score"]),
-                "classe_lead": c["_classe"],
-                "statut_scoring": c["_statut"],
-                "score_ia_details": c["_details"][:500],  # Limite HubSpot
-                "score_ia_last_update": now_iso,
-            }
-            if c["_proba_conversion"] is not None:
-                props["score_ia_proba"] = str(c["_proba_conversion"])
+            cid = str(c.get("id", ""))
+            score_str = str(c["_score"])
+            classe = c["_classe"]
+            statut = c["_statut"]
+            new_scores[cid] = f"{score_str}|{classe}|{statut}"
 
-            updates.append({"id": c["id"], "properties": props})
+            # Ne pusher que si le score, la classe ou le statut a change
+            old = old_scores.get(cid)
+            if old != new_scores[cid]:
+                props = {
+                    "score_ia": score_str,
+                    "classe_lead": classe,
+                    "statut_scoring": statut,
+                    "score_ia_details": c["_details"][:500],
+                    "score_ia_last_update": now_iso,
+                }
+                if c["_proba_conversion"] is not None:
+                    props["score_ia_proba"] = str(c["_proba_conversion"])
+                updates.append({"id": c["id"], "properties": props})
 
-        batch_update_contacts(updates)
-        print(f"  {len(updates)} contacts mis a jour dans HubSpot")
+        if updates:
+            batch_update_contacts(updates)
+            print(f"  {len(updates)} contacts modifies pushes (sur {len(scored_contacts)} total)")
+        else:
+            print(f"  Aucun changement detecte, 0 push necessaire")
+
+        # Sauvegarder les scores actuels pour la prochaine comparaison
+        with open(old_data_path, "w") as f:
+            json.dump(new_scores, f)
     else:
         print("\n[7/7] Push desactive (mode dry-run)")
 

@@ -4,3 +4,4 @@ __pycache__/
 .venv/
 venv/
 data/scored_contacts.json
+data/last_scores.json

@@ -5,7 +5,12 @@ on:
     # Toutes les 4 heures
     - cron: '0 */4 * * *'
   workflow_dispatch:
-    # Permet de lancer manuellement depuis GitHub
+    inputs:
+      force_train:
+        description: 'Re-entrainer le modele IA'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -28,13 +33,31 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Determine if ML training needed
+        id: check_train
+        run: |
+          DAY=$(date -u +%u)
+          HOUR=$(date -u +%H)
+          # Entrainer le lundi a 00h ou si force_train
+          if [ "$DAY" = "1" ] && [ "$HOUR" = "00" ] || [ "${{ inputs.force_train }}" = "true" ]; then
+            echo "train=true" >> $GITHUB_OUTPUT
+            echo "ML training: OUI"
+          else
+            echo "train=false" >> $GITHUB_OUTPUT
+            echo "ML training: NON (prochain lundi)"
+          fi
+
       - name: Run scoring pipeline
-        id: scoring
         continue-on-error: true
         env:
           HUBSPOT_API_KEY: ${{ secrets.HUBSPOT_API_KEY }}
           HUBSPOT_PORTAL_ID: ${{ secrets.HUBSPOT_PORTAL_ID }}
-        run: python main.py --score --train
+        run: |
+          if [ "${{ steps.check_train.outputs.train }}" = "true" ]; then
+            python main.py --score --train
+          else
+            python main.py --score
+          fi
 
       - name: Compress data
         if: always()
@@ -42,8 +65,6 @@ jobs:
           if [ -f data/scored_contacts.json ]; then
             gzip -f data/scored_contacts.json
             echo "Compressed OK"
-          else
-            echo "No JSON file to compress"
           fi
 
       - name: Commit scored data
@@ -54,5 +75,5 @@ jobs:
           git config http.postBuffer 52428800
           git pull --rebase origin main || true
           git add data/ || true
-          git diff --staged --quiet || git commit -m "Update scoring data $(date -u +'%Y-%m-%d %H:%Mh UTC')"
+          git diff --staged --quiet || git commit -m "Update scoring $(date -u +'%Y-%m-%d %H:%Mh UTC')"
           git push origin main || echo "Push failed"
