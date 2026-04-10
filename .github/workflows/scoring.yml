@@ -2,7 +2,6 @@ name: Scoring IA HubSpot
 
 on:
   schedule:
-    # Toutes les 4 heures
     - cron: '0 */4 * * *'
   workflow_dispatch:
     inputs:
@@ -33,47 +32,37 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Determine if ML training needed
-        id: check_train
-        run: |
-          DAY=$(date -u +%u)
-          HOUR=$(date -u +%H)
-          # Entrainer le lundi a 00h ou si force_train
-          if [ "$DAY" = "1" ] && [ "$HOUR" = "00" ] || [ "${{ inputs.force_train }}" = "true" ]; then
-            echo "train=true" >> $GITHUB_OUTPUT
-            echo "ML training: OUI"
-          else
-            echo "train=false" >> $GITHUB_OUTPUT
-            echo "ML training: NON (prochain lundi)"
-          fi
-
       - name: Run scoring pipeline
-        continue-on-error: true
         env:
           HUBSPOT_API_KEY: ${{ secrets.HUBSPOT_API_KEY }}
           HUBSPOT_PORTAL_ID: ${{ secrets.HUBSPOT_PORTAL_ID }}
         run: |
-          if [ "${{ steps.check_train.outputs.train }}" = "true" ]; then
-            python main.py --score --train
+          DAY=$(date -u +%u)
+          HOUR=$(date -u +%H)
+          if [ "$DAY" = "1" ] && [ "$HOUR" = "00" ] || [ "${{ inputs.force_train }}" = "true" ]; then
+            python main.py --score --train || true
           else
-            python main.py --score
+            python main.py --score || true
           fi
 
-      - name: Compress data
-        if: always()
+      - name: Prepare and push data
         run: |
+          # Compresser si le fichier existe
           if [ -f data/scored_contacts.json ]; then
             gzip -f data/scored_contacts.json
-            echo "Compressed OK"
+            echo "Data compressed"
           fi
 
-      - name: Commit scored data
-        if: always()
-        run: |
+          # Commit et push
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config http.postBuffer 52428800
           git pull --rebase origin main || true
           git add data/ || true
-          git diff --staged --quiet || git commit -m "Update scoring $(date -u +'%Y-%m-%d %H:%Mh UTC')"
-          git push origin main || echo "Push failed"
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update scoring $(date -u +'%Y-%m-%d %H:%Mh UTC')"
+            git push origin main
+            echo "Data pushed"
+          fi
