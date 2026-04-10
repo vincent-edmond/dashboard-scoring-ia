@@ -1,0 +1,69 @@
+{
+  "auc_score": 0.9378750278611602,
+  "auc_std": 0.07549718966874949,
+  "n_clients": 247,
+  "n_prospects": 14288,
+  "feature_importance": [
+    {
+      "feature": "nb_formulaires",
+      "importance": 0.46193272561118787
+    },
+    {
+      "feature": "jours_depuis_entree_tunnel",
+      "importance": 0.10402356617800412
+    },
+    {
+      "feature": "jours_depuis_dernier_contact",
+      "importance": 0.10175837197321963
+    },
+    {
+      "feature": "nb_email_open",
+      "importance": 0.06480891393067115
+    },
+    {
+      "feature": "nb_events",
+      "importance": 0.06257459918051318
+    },
+    {
+      "feature": "jours_depuis_ouverture",
+      "importance": 0.04401973456250334
+    },
+    {
+      "feature": "nb_email_click",
+      "importance": 0.03989968084289404
+    },
+    {
+      "feature": "jours_depuis_clic",
+      "importance": 0.030812527465265013
+    },
+    {
+      "feature": "emails_sans_engagement",
+      "importance": 0.024956209130657478
+    },
+    {
+      "feature": "dr_all_time",
+      "importance": 0.022824716632183766
+    },
+    {
+      "feature": "nb_leadmagnets",
+      "importance": 0.016024674610978975
+    },
+    {
+      "feature": "jours_depuis_rdv",
+      "importance": 0.011323174046920525
+    },
+    {
+      "feature": "budget_score",
+      "importance": 0.005350034141745813
+    },
+    {
+      "feature": "rdv_pris",
+      "importance": 0.0029935304522535266
+    },
+    {
+      "feature": "engagement_oui",
+      "importance": 0.0021735889365332803
+    }
+  ],
+  "trained_at": "2026-04-10T09:42:43.301598+00:00"
+}

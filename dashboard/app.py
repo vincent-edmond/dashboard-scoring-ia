@@ -14,7 +14,10 @@ from datetime import datetime, timezone
 # Ajouter le dossier racine au path pour les imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "scored_contacts.json")
+import gzip
+
+DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "scored_contacts.json.gz")
+DATA_PATH_RAW = os.path.join(os.path.dirname(__file__), "..", "data", "scored_contacts.json")
 INSIGHTS_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "insights.json")
 
 
@@ -36,9 +39,16 @@ def run_scoring_from_cloud():
 
 @st.cache_data(ttl=14400)  # Cache 4h
 def load_data_with_auto_scoring():
-    """Charge les donnees. Si aucune donnee locale, lance le scoring."""
+    """Charge les donnees depuis le fichier gzip ou json."""
+    # Essayer gzip d'abord
     if os.path.exists(DATA_PATH):
-        with open(DATA_PATH, "r", encoding="utf-8") as f:
+        with gzip.open(DATA_PATH, "rt", encoding="utf-8") as f:
+            data = json.load(f)
+        df = pd.DataFrame(data["contacts"])
+        return df, data
+    # Fallback sur json brut
+    if os.path.exists(DATA_PATH_RAW):
+        with open(DATA_PATH_RAW, "r", encoding="utf-8") as f:
             data = json.load(f)
         df = pd.DataFrame(data["contacts"])
         return df, data
@@ -334,28 +344,24 @@ def main():
     st.title("🎯 Scoring IA - Max Piccinini")
     st.caption("Dashboard de pilotage commercial | Donnees synchronisees avec HubSpot")
 
-    # Sidebar avec actions
+    # Sidebar
     with st.sidebar:
-        st.markdown("### Actions")
-        if st.button("🔄 Rafraichir le scoring", use_container_width=True):
-            st.cache_data.clear()
-            run_scoring_from_cloud()
-            st.rerun()
-
-        st.divider()
         st.markdown("### Liens HubSpot")
         portal = "27215892"
-        st.markdown(f"[📋 Tous les contacts]({f'https://app.hubspot.com/contacts/{portal}/objects/0-1/views/all/list'})")
-        st.markdown(f"[⚙️ Proprietes contacts]({f'https://app.hubspot.com/contacts/{portal}/settings/properties?type=0-1'})")
+        st.markdown(f"[📋 Tous les contacts](https://app.hubspot.com/contacts/{portal}/objects/0-1/views/all/list)")
+        st.markdown(f"[⚙️ Proprietes contacts](https://app.hubspot.com/contacts/{portal}/settings/properties?type=0-1)")
+        st.divider()
+        st.caption("Le scoring se met a jour automatiquement toutes les 4h via GitHub Actions.")
+        if st.button("🔄 Rafraichir l'affichage"):
+            st.cache_data.clear()
+            st.rerun()
 
     # Charger les donnees
     df, raw_data = load_data_with_auto_scoring()
 
     if df is None or len(df) == 0:
-        st.warning("Aucune donnee disponible. Cliquez sur le bouton ci-dessous pour lancer le premier scoring.")
-        if st.button("🚀 Lancer le scoring initial", type="primary"):
-            run_scoring_from_cloud()
-            st.rerun()
+        st.info("En attente des donnees. Le premier scoring est en cours via GitHub Actions (5-10 min).")
+        st.caption("Le scoring tourne automatiquement toutes les 4h. Les donnees apparaitront des que le premier run sera termine.")
         return
 
     # Metadata
