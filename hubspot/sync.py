@@ -220,28 +220,32 @@ def save_for_dashboard(scored_contacts):
             "owner_id": c.get("hubspot_owner_id", ""),
         })
 
+    # Calculer les stats
+    stats = {
+        "lead_a": sum(1 for c in dashboard_data if c["classe"] == "A" and c["statut"] == "a_appeler"),
+        "lead_b": sum(1 for c in dashboard_data if c["classe"] == "B" and c["statut"] == "a_appeler"),
+        "lead_c": sum(1 for c in dashboard_data if c["classe"] == "C" and c["statut"] == "a_appeler"),
+        "lead_d": sum(1 for c in dashboard_data if c["classe"] == "D"),
+        "a_appeler": sum(1 for c in dashboard_data if c["statut"] == "a_appeler"),
+        "a_relancer": sum(1 for c in dashboard_data if c["statut"] == "a_relancer"),
+        "recyclage": sum(1 for c in dashboard_data if c["statut"] == "recyclage"),
+    }
+    updated_at = datetime.now(timezone.utc).isoformat()
+
     # Sauvegarder en JSON
     filepath = os.path.join(DATA_DIR, "scored_contacts.json")
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump({
             "contacts": dashboard_data,
-            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "updated_at": updated_at,
             "total": len(dashboard_data),
-            "stats": {
-                "lead_a": sum(1 for c in dashboard_data if c["classe"] == "A" and c["statut"] == "a_appeler"),
-                "lead_b": sum(1 for c in dashboard_data if c["classe"] == "B" and c["statut"] == "a_appeler"),
-                "lead_c": sum(1 for c in dashboard_data if c["classe"] == "C" and c["statut"] == "a_appeler"),
-                "lead_d": sum(1 for c in dashboard_data if c["classe"] == "D"),
-                "a_appeler": sum(1 for c in dashboard_data if c["statut"] == "a_appeler"),
-                "a_relancer": sum(1 for c in dashboard_data if c["statut"] == "a_relancer"),
-                "recyclage": sum(1 for c in dashboard_data if c["statut"] == "recyclage"),
-            },
+            "stats": stats,
         }, f, ensure_ascii=False, indent=2)
 
     print(f"  Sauvegarde: {filepath} ({len(dashboard_data)} contacts)")
 
     # Sauvegarder l'historique
-    save_history(data["stats"], data["updated_at"])
+    save_history(stats, updated_at)
 
 
 def save_history(stats, updated_at):
