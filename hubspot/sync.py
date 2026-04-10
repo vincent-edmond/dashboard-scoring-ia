@@ -228,9 +228,9 @@ def save_for_dashboard(scored_contacts):
             "updated_at": datetime.now(timezone.utc).isoformat(),
             "total": len(dashboard_data),
             "stats": {
-                "lead_a": sum(1 for c in dashboard_data if c["classe"] == "A"),
-                "lead_b": sum(1 for c in dashboard_data if c["classe"] == "B"),
-                "lead_c": sum(1 for c in dashboard_data if c["classe"] == "C"),
+                "lead_a": sum(1 for c in dashboard_data if c["classe"] == "A" and c["statut"] == "a_appeler"),
+                "lead_b": sum(1 for c in dashboard_data if c["classe"] == "B" and c["statut"] == "a_appeler"),
+                "lead_c": sum(1 for c in dashboard_data if c["classe"] == "C" and c["statut"] == "a_appeler"),
                 "lead_d": sum(1 for c in dashboard_data if c["classe"] == "D"),
                 "a_appeler": sum(1 for c in dashboard_data if c["statut"] == "a_appeler"),
                 "a_relancer": sum(1 for c in dashboard_data if c["statut"] == "a_relancer"),
@@ -239,3 +239,40 @@ def save_for_dashboard(scored_contacts):
         }, f, ensure_ascii=False, indent=2)
 
     print(f"  Sauvegarde: {filepath} ({len(dashboard_data)} contacts)")
+
+    # Sauvegarder l'historique
+    save_history(data["stats"], data["updated_at"])
+
+
+def save_history(stats, updated_at):
+    """Ajoute une entree a l'historique des scorings."""
+    ensure_data_dir()
+    history_path = os.path.join(DATA_DIR, "scoring_history.json")
+
+    history = []
+    if os.path.exists(history_path):
+        try:
+            with open(history_path, "r", encoding="utf-8") as f:
+                history = json.load(f)
+        except (json.JSONDecodeError, IOError):
+            history = []
+
+    entry = {
+        "date": updated_at,
+        "lead_a": stats.get("lead_a", 0),
+        "lead_b": stats.get("lead_b", 0),
+        "lead_c": stats.get("lead_c", 0),
+        "a_relancer": stats.get("a_relancer", 0),
+        "recyclage": stats.get("recyclage", 0),
+        "a_appeler": stats.get("a_appeler", 0),
+    }
+
+    history.append(entry)
+
+    # Garder les 90 derniers jours max (6 runs/jour * 90 = 540 entrees)
+    history = history[-540:]
+
+    with open(history_path, "w", encoding="utf-8") as f:
+        json.dump(history, f, ensure_ascii=False, indent=2)
+
+    print(f"  Historique: {len(history)} entrees")

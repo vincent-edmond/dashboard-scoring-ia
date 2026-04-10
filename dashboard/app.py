@@ -229,6 +229,31 @@ Ont rempli le Typeform de candidature mais n'ont pas pris de creneau Calendly. U
             st.write(f"{len(results)} resultat(s)")
             render_table(results.head(50))
 
+    # --- HISTORIQUE ---
+    st.divider()
+    history_path = os.path.join(os.path.dirname(__file__), "..", "data", "scoring_history.json")
+    if os.path.exists(history_path):
+        with open(history_path, "r", encoding="utf-8") as f:
+            history = json.load(f)
+
+        if len(history) > 1:
+            st.markdown("### Progression du scoring")
+            st.caption("Evolution des volumes a chaque mise a jour (toutes les 4h).")
+
+            hist_df = pd.DataFrame(history)
+            hist_df["date_fr"] = hist_df["date"].apply(lambda x: format_date_fr(str(x)[:10]) + " " + str(x)[11:16] if x else "-")
+
+            display_hist = hist_df[["date_fr", "lead_a", "lead_b", "lead_c", "a_relancer", "recyclage"]].copy()
+            display_hist.columns = ["Date", "Lead A", "Lead B", "Lead C", "A relancer", "Recyclage"]
+
+            # Afficher en ordre inverse (plus recent en haut)
+            st.dataframe(
+                display_hist.iloc[::-1],
+                use_container_width=True,
+                height=min(300, len(display_hist) * 38 + 40),
+                hide_index=True,
+            )
+
     st.divider()
     st.caption(f"Total contacts scores : {raw_data.get('total', 0)} | Lead A : {stats.get('lead_a', 0)} | Lead B : {stats.get('lead_b', 0)} | Lead C : {lead_c_count} | A relancer : {stats.get('a_relancer', 0)} | Recyclage : {stats.get('recyclage', 0)}")
 
