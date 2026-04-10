@@ -125,6 +125,8 @@ SCORING_PROPERTIES = [
     # Geo
     "country", "ip_country", "ip_country_code",
     "hs_country_region_code", "pays__liste_deroulante_form_",
+    # Owner
+    "hubspot_owner_id",
     # Participations events
     *PARTICIPATION_PROPERTIES,
     # Lead magnets

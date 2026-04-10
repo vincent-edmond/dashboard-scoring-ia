@@ -349,11 +349,11 @@ def score_malus(contact):
 
 def classify_lead(score):
     """Classifie un lead en A/B/C/D selon son score."""
-    if score >= 75:
+    if score >= 60:
         return "A"
-    elif score >= 50:
+    elif score >= 40:
         return "B"
-    elif score >= 30:
+    elif score >= 25:
         return "C"
     else:
         return "D"

@@ -1,69 +1,69 @@
 {
-  "auc_score": 0.9378750278611602,
-  "auc_std": 0.07549718966874949,
+  "auc_score": 0.9377915625312406,
+  "auc_std": 0.07087305019735966,
   "n_clients": 247,
-  "n_prospects": 14288,
+  "n_prospects": 14290,
   "feature_importance": [
     {
       "feature": "nb_formulaires",
-      "importance": 0.46193272561118787
-    },
-    {
-      "feature": "jours_depuis_entree_tunnel",
-      "importance": 0.10402356617800412
+      "importance": 0.4769268846949268
     },
     {
       "feature": "jours_depuis_dernier_contact",
-      "importance": 0.10175837197321963
+      "importance": 0.16610435708752397
     },
     {
-      "feature": "nb_email_open",
-      "importance": 0.06480891393067115
-    },
-    {
-      "feature": "nb_events",
-      "importance": 0.06257459918051318
+      "feature": "jours_depuis_entree_tunnel",
+      "importance": 0.07361419121102522
     },
     {
       "feature": "jours_depuis_ouverture",
-      "importance": 0.04401973456250334
+      "importance": 0.049553120759305895
+    },
+    {
+      "feature": "nb_events",
+      "importance": 0.04687968560135534
     },
     {
       "feature": "nb_email_click",
-      "importance": 0.03989968084289404
-    },
-    {
-      "feature": "jours_depuis_clic",
-      "importance": 0.030812527465265013
+      "importance": 0.041981927224032545
     },
     {
       "feature": "emails_sans_engagement",
-      "importance": 0.024956209130657478
+      "importance": 0.03297339592516459
+    },
+    {
+      "feature": "jours_depuis_clic",
+      "importance": 0.02825713187081685
+    },
+    {
+      "feature": "nb_email_open",
+      "importance": 0.025438332002222317
     },
     {
       "feature": "dr_all_time",
-      "importance": 0.022824716632183766
-    },
-    {
-      "feature": "nb_leadmagnets",
-      "importance": 0.016024674610978975
+      "importance": 0.024785151459519032
     },
     {
       "feature": "jours_depuis_rdv",
-      "importance": 0.011323174046920525
+      "importance": 0.010131164291833058
+    },
+    {
+      "feature": "mc_mensuelle",
+      "importance": 0.005587989792615414
     },
     {
       "feature": "budget_score",
-      "importance": 0.005350034141745813
-    },
-    {
-      "feature": "rdv_pris",
-      "importance": 0.0029935304522535266
+      "importance": 0.00544736782223743
     },
     {
       "feature": "engagement_oui",
-      "importance": 0.0021735889365332803
+      "importance": 0.0035644962628922413
+    },
+    {
+      "feature": "rdv_strategique",
+      "importance": 0.0031886798426832333
     }
   ],
-  "trained_at": "2026-04-10T09:42:43.301598+00:00"
+  "trained_at": "2026-04-10T11:20:18.979510+00:00"
 }

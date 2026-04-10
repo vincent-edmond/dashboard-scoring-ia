@@ -212,10 +212,12 @@ def save_for_dashboard(scored_contacts):
             "last_email_click": c.get("hs_email_last_click_date", ""),
             "candidature": c.get("mm___candidature_effectuee", ""),
             "dr_all_time": c.get("all_time_dr", ""),
+            "candidature": c.get("mm___candidature_effectuee", ""),
             "candidature_sans_rdv": (
                 c.get("mm___candidature_effectuee", "") in ("Etape 2", "true", "Etape 1")
                 and c.get("calendly", "") != "RDV pris"
             ),
+            "owner_id": c.get("hubspot_owner_id", ""),
         })
 
     # Sauvegarder en JSON
