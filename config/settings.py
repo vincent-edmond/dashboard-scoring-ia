@@ -3,9 +3,20 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# HubSpot
-HUBSPOT_API_KEY = os.getenv("HUBSPOT_API_KEY")
-HUBSPOT_PORTAL_ID = os.getenv("HUBSPOT_PORTAL_ID", "27215892")
+# HubSpot - supporte .env local ET Streamlit Cloud secrets
+def _get_secret(key, default=None):
+    """Recupere un secret depuis .env ou Streamlit secrets."""
+    val = os.getenv(key)
+    if val:
+        return val
+    try:
+        import streamlit as st
+        return st.secrets.get(key, default)
+    except Exception:
+        return default
+
+HUBSPOT_API_KEY = _get_secret("HUBSPOT_API_KEY")
+HUBSPOT_PORTAL_ID = _get_secret("HUBSPOT_PORTAL_ID", "27215892")
 HUBSPOT_BASE_URL = f"https://app.hubspot.com/contacts/{HUBSPOT_PORTAL_ID}/record/0-1"
 
 # Sync

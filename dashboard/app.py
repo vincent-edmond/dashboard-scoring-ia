@@ -3,12 +3,16 @@ Dashboard IA - Scoring Lead HubSpot
 Interface de pilotage pour Vincent, Alex et Max.
 """
 import os
+import sys
 import json
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, timezone
+
+# Ajouter le dossier racine au path pour les imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "scored_contacts.json")
 INSIGHTS_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "insights.json")
@@ -22,18 +26,26 @@ st.set_page_config(
 )
 
 
-@st.cache_data(ttl=300)  # Cache 5 min
-def load_data():
-    """Charge les donnees de scoring."""
-    if not os.path.exists(DATA_PATH):
-        return None, None
-    with open(DATA_PATH, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    df = pd.DataFrame(data["contacts"])
-    return df, data
+def run_scoring_from_cloud():
+    """Lance le scoring directement depuis Streamlit Cloud."""
+    from hubspot.sync import run_scoring_pipeline
+    with st.spinner("Scoring en cours... Recuperation des 15 000+ contacts depuis HubSpot et calcul des scores. Ca peut prendre 5-10 minutes."):
+        scored = run_scoring_pipeline(push_to_hubspot=True, train_ml=True)
+    return scored
 
 
-@st.cache_data(ttl=300)
+@st.cache_data(ttl=14400)  # Cache 4h
+def load_data_with_auto_scoring():
+    """Charge les donnees. Si aucune donnee locale, lance le scoring."""
+    if os.path.exists(DATA_PATH):
+        with open(DATA_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        df = pd.DataFrame(data["contacts"])
+        return df, data
+    return None, None
+
+
+@st.cache_data(ttl=14400)
 def load_insights():
     """Charge les insights du modele IA."""
     if not os.path.exists(INSIGHTS_PATH):
@@ -322,12 +334,28 @@ def main():
     st.title("🎯 Scoring IA - Max Piccinini")
     st.caption("Dashboard de pilotage commercial | Donnees synchronisees avec HubSpot")
 
+    # Sidebar avec actions
+    with st.sidebar:
+        st.markdown("### Actions")
+        if st.button("🔄 Rafraichir le scoring", use_container_width=True):
+            st.cache_data.clear()
+            run_scoring_from_cloud()
+            st.rerun()
+
+        st.divider()
+        st.markdown("### Liens HubSpot")
+        portal = "27215892"
+        st.markdown(f"[📋 Tous les contacts]({f'https://app.hubspot.com/contacts/{portal}/objects/0-1/views/all/list'})")
+        st.markdown(f"[⚙️ Proprietes contacts]({f'https://app.hubspot.com/contacts/{portal}/settings/properties?type=0-1'})")
+
     # Charger les donnees
-    df, raw_data = load_data()
+    df, raw_data = load_data_with_auto_scoring()
 
     if df is None or len(df) == 0:
-        st.warning("Aucune donnee disponible. Lancez le scoring avec `python main.py` d'abord.")
-        st.code("python main.py --score --train", language="bash")
+        st.warning("Aucune donnee disponible. Cliquez sur le bouton ci-dessous pour lancer le premier scoring.")
+        if st.button("🚀 Lancer le scoring initial", type="primary"):
+            run_scoring_from_cloud()
+            st.rerun()
         return
 
     # Metadata
