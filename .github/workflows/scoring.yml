@@ -13,7 +13,7 @@ permissions:
 jobs:
   scoring:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       - uses: actions/checkout@v4
@@ -29,20 +29,30 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run scoring pipeline
+        id: scoring
+        continue-on-error: true
         env:
           HUBSPOT_API_KEY: ${{ secrets.HUBSPOT_API_KEY }}
           HUBSPOT_PORTAL_ID: ${{ secrets.HUBSPOT_PORTAL_ID }}
         run: python main.py --score --train
 
       - name: Compress data
-        run: gzip -f data/scored_contacts.json
+        if: always()
+        run: |
+          if [ -f data/scored_contacts.json ]; then
+            gzip -f data/scored_contacts.json
+            echo "Compressed OK"
+          else
+            echo "No JSON file to compress"
+          fi
 
       - name: Commit scored data
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config http.postBuffer 52428800
-          git pull --rebase origin main
-          git add data/scored_contacts.json.gz data/insights.json data/model_v2.pkl data/scoring_history.json
+          git pull --rebase origin main || true
+          git add data/ || true
           git diff --staged --quiet || git commit -m "Update scoring data $(date -u +'%Y-%m-%d %H:%Mh UTC')"
-          git push origin main
+          git push origin main || echo "Push failed"

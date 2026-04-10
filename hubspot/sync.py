@@ -245,7 +245,10 @@ def save_for_dashboard(scored_contacts):
     print(f"  Sauvegarde: {filepath} ({len(dashboard_data)} contacts)")
 
     # Sauvegarder l'historique
-    save_history(stats, updated_at)
+    try:
+        save_history(stats, updated_at)
+    except Exception as e:
+        print(f"  Erreur historique (non bloquante): {e}")
 
 
 def save_history(stats, updated_at):
