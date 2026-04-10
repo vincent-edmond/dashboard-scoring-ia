@@ -8,7 +8,7 @@ import json
 import gzip
 import streamlit as st
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
@@ -281,8 +281,19 @@ Ont candidat mais n'ont pas pris de creneau Calendly.
         st.info("En attente des donnees. Le premier scoring est en cours.")
         return
 
-    updated_at = raw_data.get("updated_at", "")
+    updated_at_raw = raw_data.get("updated_at", "")
     stats = raw_data.get("stats", {})
+
+    # Convertir UTC -> heure de Paris (UTC+1 hiver, UTC+2 ete)
+    try:
+        dt_utc = datetime.fromisoformat(updated_at_raw.replace("Z", "+00:00"))
+        # Paris = UTC+2 en ete (avril-octobre), UTC+1 en hiver
+        month = dt_utc.month
+        offset = 2 if 4 <= month <= 10 else 1
+        dt_paris = dt_utc + timedelta(hours=offset)
+        updated_at_display = f"{format_date_fr(dt_paris.strftime('%Y-%m-%d'))} a {dt_paris.strftime('%Hh%M')}"
+    except Exception:
+        updated_at_display = updated_at_raw[:16]
 
     # --- KPIs ---
     lead_c_count = len(df[(df["classe"] == "C") & (df["statut"] == "a_appeler")])
@@ -298,7 +309,7 @@ Ont candidat mais n'ont pas pris de creneau Calendly.
     for col, (label, value) in zip(cols, kpi_data):
         col.metric(label, f"{value:,}".replace(",", " "))
 
-    st.caption(f"Mise a jour : {format_date_fr(updated_at[:10])} a {updated_at[11:16]} UTC")
+    st.caption(f"Mise a jour : {updated_at_display} (heure de Paris)")
 
     # --- ONGLETS ---
     # Calculer le nombre de "sans suite apres RDV"
