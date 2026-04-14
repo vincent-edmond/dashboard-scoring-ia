@@ -33,7 +33,7 @@ CA_10M_PLUS = "+ 10 millions € de C.A annuel"
 EXCLUSION_RULES = {
     "client_mm": ["MM Actif", "MM En Pause"],
     "n3m___clients": ["3M Actif", "3M En Pause"],
-    "lifecyclestage": ["235301569", "235178993"],  # Client 3M, Client MM
+    "lifecyclestage": ["235301569", "235178993", "customer"],  # Client 3M, Client MM, Client standard
 }
 
 # Produits a exclure dans achat_produit
