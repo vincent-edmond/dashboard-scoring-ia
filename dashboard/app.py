@@ -14,6 +14,8 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "scored_contacts.json.gz")
 DATA_PATH_RAW = os.path.join(os.path.dirname(__file__), "..", "data", "scored_contacts.json")
+DATA_PATH_300K = os.path.join(os.path.dirname(__file__), "..", "data", "scored_contacts_300k.json.gz")
+DATA_PATH_300K_RAW = os.path.join(os.path.dirname(__file__), "..", "data", "scored_contacts_300k.json")
 PORTAL = "27215892"
 
 MOIS_FR = {1:"jan.", 2:"fev.", 3:"mars", 4:"avr.", 5:"mai", 6:"juin",
@@ -178,6 +180,17 @@ def load_data():
     return None, None
 
 
+@st.cache_data(ttl=14400)
+def load_data_300k():
+    for path, opener in [(DATA_PATH_300K, lambda p: gzip.open(p, "rt", encoding="utf-8")),
+                         (DATA_PATH_300K_RAW, lambda p: open(p, "r", encoding="utf-8"))]:
+        if os.path.exists(path):
+            with opener(path) as f:
+                data = json.load(f)
+            return pd.DataFrame(data["contacts"]), data
+    return None, None
+
+
 def hubspot_url(contact_id):
     return f"https://app.hubspot.com/contacts/{PORTAL}/record/0-1/{contact_id}"
 
@@ -193,7 +206,7 @@ def render_table(df_subset):
 
     display = df_subset.copy()
     display["CA"] = display["ca"].apply(
-        lambda x: "10M+" if "10M" in str(x) else "1M-10M" if "1M" in str(x) else str(x)[:10]
+        lambda x: "10M+" if "10M" in str(x) else "1M-10M" if "1M" in str(x) else "300K-1M" if "300" in str(x) else str(x)[:10]
     )
     display["Dernier contact"] = display["dernier_contact"].apply(format_date_fr)
     display["Date RDV"] = display["calendly_date"].apply(format_date_fr)
@@ -233,54 +246,8 @@ def render_table(df_subset):
     )
 
 
-def main():
-    # --- HEADER ---
-    st.markdown("""
-    <div class="main-header">
-        <h1>🎯 Scoring IA - Max Piccinini</h1>
-        <p>Dashboard de pilotage commercial | Donnees synchronisees avec HubSpot toutes les 4h</p>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # --- SIDEBAR ---
-    with st.sidebar:
-        st.markdown("### Comment lire ce dashboard")
-        st.markdown("""
-**Lead A** (score 60+)
-Les prospects les plus chauds : CA 1M+, avances dans le funnel (RDV, candidature), engagement email recent.
-
-**Lead B** (score 40-59)
-Bons profils avec plusieurs signaux positifs : events, guides telecharges, emails ouverts.
-
-**Lead C** (score 25-39)
-Prospects tides : CA 1M+ avec au moins un signal d'interet. Ideaux pour du nurturing ou une invitation a un event.
-
-**A relancer**
-Contacts en suivi commercial mais sans activite depuis 30 a 90 jours. Le commercial a oublie de relancer.
-
-**Recyclage**
-Oublies depuis plus de 3 mois. Les recontacter comme des prospects neufs.
-
-**Candidatures sans RDV**
-Ont candidat mais n'ont pas pris de creneau Calendly.
-        """)
-        st.divider()
-        st.markdown("### Fonctionnement")
-        st.caption("Les scores se mettent a jour automatiquement toutes les 4 heures.")
-        st.caption("Quand un commercial met a jour le statut d'un contact dans HubSpot, le contact sort automatiquement de ces listes.")
-        st.divider()
-        st.markdown(f"[Listes HubSpot](https://app.hubspot.com/contacts/{PORTAL}/lists)")
-        st.divider()
-        if st.button("🔄 Rafraichir", use_container_width=True):
-            st.cache_data.clear()
-            st.rerun()
-
-    # --- DATA ---
-    df, raw_data = load_data()
-    if df is None or len(df) == 0:
-        st.info("En attente des donnees. Le premier scoring est en cours.")
-        return
-
+def render_segment(df, raw_data, history_path):
+    """Affiche les KPIs, onglets de contacts et historique pour un segment."""
     updated_at_raw = raw_data.get("updated_at", "")
     stats = raw_data.get("stats", {})
 
@@ -359,7 +326,6 @@ Ont candidat mais n'ont pas pris de creneau Calendly.
         render_table(sans_suite.sort_values("score", ascending=False))
 
     # --- HISTORIQUE ---
-    history_path = os.path.join(os.path.dirname(__file__), "..", "data", "scoring_history.json")
     if os.path.exists(history_path):
         with open(history_path, "r", encoding="utf-8") as f:
             history = json.load(f)
@@ -384,10 +350,82 @@ Ont candidat mais n'ont pas pris de creneau Calendly.
                 hide_index=True,
             )
 
+
+def main():
+    # --- HEADER ---
+    st.markdown("""
+    <div class="main-header">
+        <h1>🎯 Scoring IA - Max Piccinini</h1>
+        <p>Dashboard de pilotage commercial | Donnees synchronisees avec HubSpot toutes les 4h</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # --- SIDEBAR ---
+    with st.sidebar:
+        st.markdown("### Comment lire ce dashboard")
+        st.markdown("""
+**Lead A** (score 60+)
+Les prospects les plus chauds : CA 1M+, avances dans le funnel (RDV, candidature), engagement email recent.
+
+**Lead B** (score 40-59)
+Bons profils avec plusieurs signaux positifs : events, guides telecharges, emails ouverts.
+
+**Lead C** (score 25-39)
+Prospects tides : CA 1M+ avec au moins un signal d'interet. Ideaux pour du nurturing ou une invitation a un event.
+
+**A relancer**
+Contacts en suivi commercial mais sans activite depuis 30 a 90 jours. Le commercial a oublie de relancer.
+
+**Recyclage**
+Oublies depuis plus de 3 mois. Les recontacter comme des prospects neufs.
+
+**Candidatures sans RDV**
+Ont candidat mais n'ont pas pris de creneau Calendly.
+        """)
+        st.divider()
+        st.markdown("### Segments")
+        st.markdown("""
+**+1M** : Contacts CA > 1M€. Segment historique prioritaire.
+
+**300K-1M** : Contacts CA entre 300K€ et 1M€. Volume plus important, meme logique de scoring.
+""")
+        st.divider()
+        st.markdown("### Fonctionnement")
+        st.caption("Les scores se mettent a jour automatiquement toutes les 4 heures.")
+        st.caption("Quand un commercial met a jour le statut d'un contact dans HubSpot, le contact sort automatiquement de ces listes.")
+        st.divider()
+        st.markdown(f"[Listes HubSpot](https://app.hubspot.com/contacts/{PORTAL}/lists)")
+        st.divider()
+        if st.button("🔄 Rafraichir", use_container_width=True):
+            st.cache_data.clear()
+            st.rerun()
+
+    # --- DATA ---
+    df_1m, raw_1m = load_data()
+    df_300k, raw_300k = load_data_300k()
+
+    # --- SEGMENT TABS ---
+    seg1, seg2 = st.tabs(["📊 Segment +1M", "📊 Segment 300K-1M"])
+
+    with seg1:
+        if df_1m is not None and len(df_1m) > 0:
+            history_path_1m = os.path.join(os.path.dirname(__file__), "..", "data", "scoring_history.json")
+            render_segment(df_1m, raw_1m, history_path_1m)
+        else:
+            st.info("En attente des donnees du segment +1M.")
+
+    with seg2:
+        if df_300k is not None and len(df_300k) > 0:
+            history_path_300k = os.path.join(os.path.dirname(__file__), "..", "data", "scoring_history_300k.json")
+            render_segment(df_300k, raw_300k, history_path_300k)
+        else:
+            st.info("En attente des donnees du segment 300K-1M. Le prochain scoring les generera.")
+
     # --- FOOTER ---
     st.divider()
-    total = raw_data.get('total', 0)
-    st.caption(f"Base : {total:,} contacts scores | Scoring IA v2 | AUC 0.94".replace(",", " "))
+    total_1m = raw_1m.get('total', 0) if raw_1m else 0
+    total_300k = raw_300k.get('total', 0) if raw_300k else 0
+    st.caption(f"Base : {total_1m + total_300k:,} contacts scores ({total_1m:,} +1M | {total_300k:,} 300K-1M) | Scoring IA v2".replace(",", " "))
 
 
 if __name__ == "__main__":

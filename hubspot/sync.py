@@ -26,7 +26,7 @@ def ensure_data_dir():
     os.makedirs(DATA_DIR, exist_ok=True)
 
 
-def run_scoring_pipeline(push_to_hubspot=True, train_ml=True):
+def run_scoring_pipeline(push_to_hubspot=True, train_ml=True, segment="1m_plus"):
     """
     Pipeline complet de scoring.
     1. Setup des proprietes HubSpot
@@ -38,9 +38,13 @@ def run_scoring_pipeline(push_to_hubspot=True, train_ml=True):
     7. Push des scores dans HubSpot
     8. Sauvegarde locale (dashboard)
     """
+    from config.settings import SEGMENTS
+    seg_config = SEGMENTS[segment]
+    seg_label = seg_config["label"]
+
     ensure_data_dir()
     print("=" * 60)
-    print("PIPELINE DE SCORING IA")
+    print(f"PIPELINE DE SCORING IA - Segment {seg_label}")
     print(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     print("=" * 60)
 
@@ -51,7 +55,7 @@ def run_scoring_pipeline(push_to_hubspot=True, train_ml=True):
 
     # 2. Pull contacts
     print("\n[2/7] Recuperation des contacts 1M+...")
-    contacts = fetch_target_contacts()
+    contacts = fetch_target_contacts(ca_values=seg_config["ca_values"])
 
     # 3. Filtre geo
     print("\n[3/7] Filtre geographique...")
@@ -127,7 +131,7 @@ def run_scoring_pipeline(push_to_hubspot=True, train_ml=True):
 
         # Charger les anciens scores pour comparer
         old_scores = {}
-        old_data_path = os.path.join(DATA_DIR, "last_scores.json")
+        old_data_path = os.path.join(DATA_DIR, f"{seg_config['last_scores_file']}.json")
         if os.path.exists(old_data_path):
             try:
                 with open(old_data_path, "r") as f:
@@ -171,7 +175,7 @@ def run_scoring_pipeline(push_to_hubspot=True, train_ml=True):
 
     # Sauvegarder pour le dashboard
     print("\nSauvegarde locale pour le dashboard...")
-    save_for_dashboard(scored_contacts)
+    save_for_dashboard(scored_contacts, segment=segment)
 
     print("\n" + "=" * 60)
     print("SCORING TERMINE")
@@ -185,8 +189,10 @@ def run_scoring_pipeline(push_to_hubspot=True, train_ml=True):
     return scored_contacts
 
 
-def save_for_dashboard(scored_contacts):
+def save_for_dashboard(scored_contacts, segment="1m_plus"):
     """Sauvegarde les donnees pour le dashboard."""
+    from config.settings import SEGMENTS
+    seg_config = SEGMENTS[segment]
     ensure_data_dir()
 
     # Convertir en format dashboard
@@ -259,7 +265,7 @@ def save_for_dashboard(scored_contacts):
     updated_at = datetime.now(timezone.utc).isoformat()
 
     # Sauvegarder en JSON
-    filepath = os.path.join(DATA_DIR, "scored_contacts.json")
+    filepath = os.path.join(DATA_DIR, f"{seg_config['data_file']}.json")
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump({
             "contacts": dashboard_data,
@@ -272,15 +278,17 @@ def save_for_dashboard(scored_contacts):
 
     # Sauvegarder l'historique
     try:
-        save_history(stats, updated_at)
+        save_history(stats, updated_at, segment=segment)
     except Exception as e:
         print(f"  Erreur historique (non bloquante): {e}")
 
 
-def save_history(stats, updated_at):
+def save_history(stats, updated_at, segment="1m_plus"):
     """Ajoute une entree a l'historique des scorings."""
+    from config.settings import SEGMENTS
+    seg_config = SEGMENTS[segment]
     ensure_data_dir()
-    history_path = os.path.join(DATA_DIR, "scoring_history.json")
+    history_path = os.path.join(DATA_DIR, f"{seg_config['history_file']}.json")
 
     history = []
     if os.path.exists(history_path):
@@ -309,3 +317,20 @@ def save_history(stats, updated_at):
         json.dump(history, f, ensure_ascii=False, indent=2)
 
     print(f"  Historique: {len(history)} entrees")
+
+
+def run_all_segments(push_to_hubspot=True, train_ml=True):
+    """Execute le scoring pour tous les segments."""
+    from config.settings import SEGMENTS
+    all_results = {}
+    for seg_key in SEGMENTS:
+        print(f"\n{'#' * 60}")
+        print(f"# SEGMENT: {SEGMENTS[seg_key]['label']}")
+        print(f"{'#' * 60}")
+        results = run_scoring_pipeline(
+            push_to_hubspot=push_to_hubspot,
+            train_ml=train_ml,
+            segment=seg_key,
+        )
+        all_results[seg_key] = results
+    return all_results

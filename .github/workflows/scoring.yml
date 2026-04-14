@@ -17,7 +17,7 @@ permissions:
 jobs:
   scoring:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
 
     steps:
       - uses: actions/checkout@v4
@@ -47,11 +47,13 @@ jobs:
 
       - name: Prepare and push data
         run: |
-          # Compresser si le fichier existe
-          if [ -f data/scored_contacts.json ]; then
-            gzip -f data/scored_contacts.json
-            echo "Data compressed"
-          fi
+          # Compresser les fichiers de scoring
+          for f in data/scored_contacts.json data/scored_contacts_300k.json; do
+            if [ -f "$f" ]; then
+              gzip -f "$f"
+              echo "Compressed: $f"
+            fi
+          done
 
           # Commit et push
           git config user.name "github-actions[bot]"

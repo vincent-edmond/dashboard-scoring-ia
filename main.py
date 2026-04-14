@@ -16,7 +16,7 @@ import schedule
 # Ajouter le dossier racine au path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from hubspot.sync import run_scoring_pipeline
+from hubspot.sync import run_scoring_pipeline, run_all_segments
 
 
 def run_dashboard():
@@ -33,11 +33,11 @@ def run_cron(interval_hours, train_ml=False):
     print("Premier scoring maintenant...")
 
     # Premier run immediat
-    run_scoring_pipeline(push_to_hubspot=True, train_ml=train_ml)
+    run_all_segments(push_to_hubspot=True, train_ml=train_ml)
 
     # Planifier les suivants
     schedule.every(interval).hours.do(
-        run_scoring_pipeline,
+        run_all_segments,
         push_to_hubspot=True,
         train_ml=False,  # On ne re-entraine pas a chaque cron
     )
@@ -64,7 +64,7 @@ def main():
         run_cron(args.interval, train_ml=args.train)
     elif args.score or args.dry_run:
         push = not args.dry_run
-        run_scoring_pipeline(push_to_hubspot=push, train_ml=args.train)
+        run_all_segments(push_to_hubspot=push, train_ml=args.train)
     else:
         parser.print_help()
         print("\nExemples:")

@@ -28,6 +28,25 @@ SYNC_INTERVAL_HOURS = int(os.getenv("SYNC_INTERVAL_HOURS", "4"))
 CA_PROPERTY = "chiffre_d_affaires_annuel_new"
 CA_1M_10M = "1 million € à 10 millions € de C.A annuel"
 CA_10M_PLUS = "+ 10 millions € de C.A annuel"
+CA_300K_1M = "300 000€ à 1 million € de C.A annuel"
+
+# Segments de scoring
+SEGMENTS = {
+    "1m_plus": {
+        "label": "+1M",
+        "ca_values": [CA_1M_10M, CA_10M_PLUS],
+        "data_file": "scored_contacts",
+        "history_file": "scoring_history",
+        "last_scores_file": "last_scores",
+    },
+    "300k_1m": {
+        "label": "300K-1M",
+        "ca_values": [CA_300K_1M],
+        "data_file": "scored_contacts_300k",
+        "history_file": "scoring_history_300k",
+        "last_scores_file": "last_scores_300k",
+    },
+}
 
 # Proprietes a exclure (clients actifs)
 EXCLUSION_RULES = {

@@ -128,27 +128,27 @@ def _search_with_date_split(filter_base, label=""):
     return all_results
 
 
-def fetch_target_contacts():
+def fetch_target_contacts(ca_values=None):
     """
-    Recupere tous les contacts 1M+ (la base scorable).
-    Deux requetes : 1M-10M et +10M.
+    Recupere les contacts pour les valeurs CA donnees.
+    Par defaut : contacts 1M+ (comportement original).
     """
     from config.settings import CA_PROPERTY, CA_1M_10M, CA_10M_PLUS
 
-    print("Recuperation des contacts 1M-10M...")
-    contacts_1m = _search_with_date_split(
-        [{"propertyName": CA_PROPERTY, "operator": "EQ", "value": CA_1M_10M}],
-        label="1M-10M",
-    )
+    if ca_values is None:
+        ca_values = [CA_1M_10M, CA_10M_PLUS]
 
-    print("Recuperation des contacts +10M...")
-    contacts_10m = _search_with_date_split(
-        [{"propertyName": CA_PROPERTY, "operator": "EQ", "value": CA_10M_PLUS}],
-        label="+10M",
-    )
+    all_contacts = []
+    for ca_val in ca_values:
+        label = ca_val[:20].strip()
+        print(f"Recuperation des contacts {label}...")
+        contacts = _search_with_date_split(
+            [{"propertyName": CA_PROPERTY, "operator": "EQ", "value": ca_val}],
+            label=label,
+        )
+        all_contacts.extend(contacts)
 
-    all_contacts = contacts_1m + contacts_10m
-    print(f"Total: {len(all_contacts)} contacts 1M+ recuperes")
+    print(f"Total: {len(all_contacts)} contacts recuperes")
     return all_contacts
 
 
