@@ -5,7 +5,7 @@ Score sur ~100 points + bonus/malus.
 """
 from datetime import datetime, timezone
 from config.settings import (
-    CA_1M_10M, CA_10M_PLUS,
+    CA_1M_10M, CA_10M_PLUS, CA_300K_1M,
     EXCLUSION_RULES, EXCLUDED_PRODUCTS,
     ACTIVE_FOLLOW_STATUSES, DISQUALIFIED_STATUSES, BAD_NUMBER_STATUS,
     PARTICIPATION_PROPERTIES, LEADMAGNET_PROPERTIES,
@@ -117,6 +117,9 @@ def score_profil(contact):
     elif ca == CA_1M_10M:
         score += 20
         details.append("CA 1M-10M (+20)")
+    elif ca == CA_300K_1M:
+        score += 10
+        details.append("CA 300K-1M (+10)")
 
     if _prop(contact, "all_time_dr") == "true":
         score += 10
