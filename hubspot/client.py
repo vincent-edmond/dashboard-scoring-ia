@@ -254,6 +254,26 @@ def setup_scoring_properties():
     print("Proprietes de scoring configurees.")
 
 
+def fetch_owners():
+    """Recupere la liste des owners HubSpot (commerciaux)."""
+    try:
+        data = _request("GET", "/crm/v3/owners/", params={"limit": 100})
+        owners = {}
+        for owner in data.get("results", []):
+            oid = str(owner.get("id", ""))
+            first = owner.get("firstName", "")
+            last = owner.get("lastName", "")
+            email = owner.get("email", "")
+            owners[oid] = {
+                "name": f"{first} {last}".strip() or email,
+                "email": email,
+            }
+        return owners
+    except Exception as e:
+        print(f"  Erreur fetch owners: {e}")
+        return {}
+
+
 def get_contact_url(contact_id):
     """Retourne l'URL directe vers la fiche contact HubSpot."""
     return f"https://app.hubspot.com/contacts/{HUBSPOT_PORTAL_ID}/record/0-1/{contact_id}"

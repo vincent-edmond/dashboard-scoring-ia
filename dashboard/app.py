@@ -351,6 +351,105 @@ def render_segment(df, raw_data, history_path):
             )
 
 
+def load_owners():
+    """Charge les noms des owners HubSpot."""
+    owners_path = os.path.join(os.path.dirname(__file__), "..", "data", "owners.json")
+    if os.path.exists(owners_path):
+        with open(owners_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+
+def load_processing(segment):
+    """Charge l'historique de traitement d'un segment."""
+    path = os.path.join(os.path.dirname(__file__), "..", "data", f"processing_{segment}.json")
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return []
+
+
+def render_suivi_commercial():
+    """Onglet de suivi de la performance commerciale."""
+    st.markdown('<div class="tab-desc">Suivi du traitement des listes par les commerciaux. Chaque contact pris en charge, appele ou dont le statut a change est comptabilise ici.</div>', unsafe_allow_html=True)
+
+    owners = load_owners()
+    proc_1m = load_processing("1m_plus")
+    proc_300k = load_processing("300k_1m")
+    all_proc = proc_1m + proc_300k
+
+    if not all_proc:
+        st.info("Pas encore de donnees de suivi. Les stats apparaitront apres les prochains cycles de scoring (toutes les 4h).")
+        return
+
+    df = pd.DataFrame(all_proc)
+    df["date_jour"] = df["date"].apply(lambda x: str(x)[:10])
+    df["commercial"] = df["owner_id"].apply(
+        lambda x: owners.get(str(x), {}).get("name", "Non assigne") if x else "Non assigne"
+    )
+    df["contact"] = df.apply(lambda r: f"{r.get('prenom', '')} {r.get('nom', '')}".strip() or "?", axis=1)
+
+    # --- KPIs globaux ---
+    cols = st.columns(4)
+    cols[0].metric("Contacts traites", len(df))
+    nb_jours = df["date_jour"].nunique()
+    cols[1].metric("Jours actifs", nb_jours)
+    moyenne = round(len(df) / max(nb_jours, 1), 1)
+    cols[2].metric("Moyenne / jour", moyenne)
+    nb_commerciaux = df[df["commercial"] != "Non assigne"]["commercial"].nunique()
+    cols[3].metric("Commerciaux actifs", nb_commerciaux)
+
+    st.divider()
+
+    # --- Par commercial ---
+    st.markdown("### Performance par commercial")
+    if nb_commerciaux > 0:
+        by_owner = df[df["commercial"] != "Non assigne"].groupby("commercial").agg(
+            total=("contact_id", "count"),
+            derniere_activite=("date", "max"),
+        ).sort_values("total", ascending=False).reset_index()
+        by_owner.columns = ["Commercial", "Contacts traites", "Derniere activite"]
+        by_owner["Derniere activite"] = by_owner["Derniere activite"].apply(
+            lambda x: format_date_fr(str(x)[:10])
+        )
+        st.dataframe(by_owner, use_container_width=True, hide_index=True)
+    else:
+        st.caption("Aucun commercial assigne pour le moment. Les contacts seront attribues une fois le dispatch active.")
+
+    st.divider()
+
+    # --- Par jour ---
+    st.markdown("### Activite par jour")
+    by_day = df.groupby("date_jour").agg(
+        total=("contact_id", "count"),
+    ).sort_index(ascending=False).reset_index()
+    by_day.columns = ["Jour", "Contacts traites"]
+    by_day["Jour"] = by_day["Jour"].apply(format_date_fr)
+    st.dataframe(by_day, use_container_width=True, hide_index=True, height=min(300, len(by_day) * 38 + 40))
+
+    st.divider()
+
+    # --- Statuts resultants ---
+    st.markdown("### Statuts apres traitement")
+    by_status = df.groupby("new_lead_status").agg(
+        total=("contact_id", "count"),
+    ).sort_values("total", ascending=False).reset_index()
+    by_status.columns = ["Nouveau statut", "Nombre"]
+    by_status["Nouveau statut"] = by_status["Nouveau statut"].replace("", "Inchange")
+    st.dataframe(by_status, use_container_width=True, hide_index=True)
+
+    st.divider()
+
+    # --- Detail recent ---
+    st.markdown("### Derniers contacts traites")
+    recent = df.sort_values("date", ascending=False).head(50)
+    display_recent = recent[["date_jour", "commercial", "contact", "old_classe", "old_statut", "new_lead_status", "reason"]].copy()
+    display_recent.columns = ["Date", "Commercial", "Contact", "Classe", "Ancien statut", "Nouveau statut", "Raison"]
+    display_recent["Date"] = display_recent["Date"].apply(format_date_fr)
+    display_recent["Nouveau statut"] = display_recent["Nouveau statut"].replace("", "-")
+    st.dataframe(display_recent, use_container_width=True, hide_index=True, height=min(500, len(display_recent) * 38 + 40))
+
+
 def main():
     # --- HEADER ---
     st.markdown("""
@@ -405,7 +504,7 @@ Ont candidat mais n'ont pas pris de creneau Calendly.
     df_300k, raw_300k = load_data_300k()
 
     # --- SEGMENT TABS ---
-    seg1, seg2 = st.tabs(["📊 Segment +1M", "📊 Segment 300K-1M"])
+    seg1, seg2, seg_suivi = st.tabs(["📊 Segment +1M", "📊 Segment 300K-1M", "📈 Suivi commercial"])
 
     with seg1:
         if df_1m is not None and len(df_1m) > 0:
@@ -420,6 +519,9 @@ Ont candidat mais n'ont pas pris de creneau Calendly.
             render_segment(df_300k, raw_300k, history_path_300k)
         else:
             st.info("En attente des donnees du segment 300K-1M. Le prochain scoring les generera.")
+
+    with seg_suivi:
+        render_suivi_commercial()
 
     # --- FOOTER ---
     st.divider()

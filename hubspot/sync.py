@@ -5,7 +5,7 @@ Pull contacts → Score → Push scores dans HubSpot.
 import os
 import json
 import pandas as pd
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 from hubspot.client import (
     fetch_target_contacts,
@@ -52,6 +52,16 @@ def run_scoring_pipeline(push_to_hubspot=True, train_ml=True, segment="1m_plus")
     if push_to_hubspot:
         print("\n[1/7] Configuration des proprietes HubSpot...")
         setup_scoring_properties()
+
+    # Fetch owners (une seule fois)
+    owners_path = os.path.join(DATA_DIR, "owners.json")
+    if push_to_hubspot and not os.path.exists(owners_path) or segment == "1m_plus":
+        from hubspot.client import fetch_owners
+        owners = fetch_owners()
+        if owners:
+            with open(owners_path, "w", encoding="utf-8") as f:
+                json.dump(owners, f, ensure_ascii=False, indent=2)
+            print(f"  {len(owners)} owners recuperes")
 
     # 2. Pull contacts
     print("\n[2/7] Recuperation des contacts 1M+...")
@@ -173,6 +183,10 @@ def run_scoring_pipeline(push_to_hubspot=True, train_ml=True, segment="1m_plus")
     else:
         print("\n[7/7] Push desactive (mode dry-run)")
 
+    # Tracker les contacts traites
+    print("\nTracking des contacts traites...")
+    track_processing(scored_contacts, segment=segment)
+
     # Sauvegarder pour le dashboard
     print("\nSauvegarde locale pour le dashboard...")
     save_for_dashboard(scored_contacts, segment=segment)
@@ -187,6 +201,115 @@ def run_scoring_pipeline(push_to_hubspot=True, train_ml=True, segment="1m_plus")
     print("=" * 60)
 
     return scored_contacts
+
+
+def track_processing(scored_contacts, segment="1m_plus"):
+    """Detecte les contacts traites depuis le dernier run et sauvegarde les stats."""
+    from config.settings import SEGMENTS
+    seg_config = SEGMENTS[segment]
+    ensure_data_dir()
+
+    # Charger l'etat precedent (plus complet que last_scores)
+    state_path = os.path.join(DATA_DIR, f"{seg_config['last_scores_file']}_state.json")
+    old_state = {}
+    if os.path.exists(state_path):
+        try:
+            with open(state_path, "r") as f:
+                old_state = json.load(f)
+        except Exception:
+            old_state = {}
+
+    # Construire l'etat actuel
+    new_state = {}
+    for c in scored_contacts:
+        cid = str(c.get("id", ""))
+        new_state[cid] = {
+            "statut": c.get("_statut", ""),
+            "classe": c.get("_classe", ""),
+            "lead_status": c.get("hs_lead_status", ""),
+            "owner_id": c.get("hubspot_owner_id", ""),
+            "last_contacted": c.get("notes_last_contacted", ""),
+            "score": c.get("_score", 0),
+            "prenom": c.get("firstname", ""),
+            "nom": c.get("lastname", ""),
+        }
+
+    # Detecter les contacts traites
+    processed = []
+    now_iso = datetime.now(timezone.utc).isoformat()
+
+    for cid, old in old_state.items():
+        new = new_state.get(cid)
+        if not new:
+            continue
+
+        old_statut = old.get("statut", "")
+        new_statut = new.get("statut", "")
+        old_lead_status = old.get("lead_status", "")
+        new_lead_status = new.get("lead_status", "")
+        old_last_contacted = old.get("last_contacted", "")
+        new_last_contacted = new.get("last_contacted", "")
+
+        # Contact etait actionnable et quelque chose a change
+        if old_statut in ("a_appeler", "a_relancer", "recyclage"):
+            changed = False
+            reason = ""
+
+            if new_statut == "exclu" and old_statut != "exclu":
+                changed = True
+                reason = "pris_en_charge"
+            elif new_lead_status != old_lead_status and new_lead_status:
+                changed = True
+                reason = f"statut_change:{old_lead_status}->{new_lead_status}"
+            elif new_last_contacted and new_last_contacted != old_last_contacted:
+                changed = True
+                reason = "contact_recent"
+
+            if changed:
+                processed.append({
+                    "contact_id": cid,
+                    "date": now_iso,
+                    "owner_id": new.get("owner_id", ""),
+                    "old_statut": old_statut,
+                    "new_statut": new_statut,
+                    "old_lead_status": old_lead_status,
+                    "new_lead_status": new_lead_status,
+                    "old_classe": old.get("classe", ""),
+                    "reason": reason,
+                    "prenom": new.get("prenom", ""),
+                    "nom": new.get("nom", ""),
+                })
+
+    # Sauvegarder l'etat actuel pour le prochain run
+    with open(state_path, "w") as f:
+        json.dump(new_state, f)
+
+    # Ajouter au fichier de processing history
+    if processed:
+        history_path = os.path.join(DATA_DIR, f"processing_{segment}.json")
+
+        history = []
+        if os.path.exists(history_path):
+            try:
+                with open(history_path, "r", encoding="utf-8") as f:
+                    history = json.load(f)
+            except Exception:
+                history = []
+
+        history.extend(processed)
+
+        # Garder les 30 derniers jours max
+        cutoff = (datetime.now(timezone.utc) - timedelta(days=30)).isoformat()
+        history = [h for h in history if h.get("date", "") >= cutoff]
+
+        with open(history_path, "w", encoding="utf-8") as f:
+            json.dump(history, f, ensure_ascii=False, indent=2)
+
+        print(f"  Tracking: {len(processed)} contacts traites detectes")
+    else:
+        print(f"  Tracking: aucun changement detecte")
+
+    return processed
 
 
 def save_for_dashboard(scored_contacts, segment="1m_plus"):
