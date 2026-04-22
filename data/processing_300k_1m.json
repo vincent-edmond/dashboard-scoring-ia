@@ -1948,5 +1948,70 @@
     "reason": "statut_change:None->Appel 1",
     "prenom": "Sylvie",
     "nom": null
+  },
+  {
+    "contact_id": "205623142597",
+    "date": "2026-04-22T17:16:05.423804+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 2",
+    "new_lead_status": "Appel 3",
+    "old_classe": "A",
+    "reason": "statut_change:Appel 2->Appel 3",
+    "prenom": "Mourad",
+    "nom": "GADHI"
+  },
+  {
+    "contact_id": "495874523383",
+    "date": "2026-04-22T17:16:05.423804+00:00",
+    "owner_id": "30194780",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Laetitia",
+    "nom": "de Pauw"
+  },
+  {
+    "contact_id": "653025765573",
+    "date": "2026-04-22T17:16:05.423804+00:00",
+    "owner_id": "",
+    "old_statut": "a_relancer",
+    "new_statut": "exclu",
+    "old_lead_status": "IN_PROGRESS",
+    "new_lead_status": "UNQUALIFIED",
+    "old_classe": "B",
+    "reason": "pris_en_charge",
+    "prenom": "Fabien",
+    "nom": "Queffelec"
+  },
+  {
+    "contact_id": "715510995133",
+    "date": "2026-04-22T17:16:05.423804+00:00",
+    "owner_id": "31178015",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Jean",
+    "nom": "Baptiste"
+  },
+  {
+    "contact_id": "762397401280",
+    "date": "2026-04-22T17:16:05.423804+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "Appel 1",
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Sylvie",
+    "nom": null
   }
 ]
