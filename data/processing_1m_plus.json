@@ -1935,5 +1935,18 @@
     "reason": "contact_recent",
     "prenom": "Delphine",
     "nom": "Guyon"
+  },
+  {
+    "contact_id": "711288514772",
+    "date": "2026-04-22T21:08:17.048889+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Nicolas",
+    "nom": "Dziopa"
   }
 ]
