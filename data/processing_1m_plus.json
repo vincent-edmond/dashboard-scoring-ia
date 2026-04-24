@@ -3053,5 +3053,31 @@
     "reason": "statut_change:None->Appel 2",
     "prenom": "Thomas",
     "nom": "Battais"
+  },
+  {
+    "contact_id": "111015053522",
+    "date": "2026-04-24T17:09:56.934451+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 3",
+    "new_lead_status": "Appel 3",
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Adeline",
+    "nom": "Fourcade"
+  },
+  {
+    "contact_id": "754900449484",
+    "date": "2026-04-24T17:09:56.934451+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Marton",
+    "nom": "Gerard"
   }
 ]

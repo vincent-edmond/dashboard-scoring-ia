@@ -3352,5 +3352,18 @@
     "reason": "pris_en_charge",
     "prenom": "Filip",
     "nom": null
+  },
+  {
+    "contact_id": "761128390846",
+    "date": "2026-04-24T17:10:59.058095+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": null,
+    "new_lead_status": "IN_PROGRESS",
+    "old_classe": "B",
+    "reason": "pris_en_charge",
+    "prenom": "Virginie",
+    "nom": "Lehmann"
   }
 ]
