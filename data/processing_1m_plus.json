@@ -3079,5 +3079,18 @@
     "reason": "contact_recent",
     "prenom": "Marton",
     "nom": "Gerard"
+  },
+  {
+    "contact_id": "765658204380",
+    "date": "2026-04-26T09:12:45.172989+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Anne",
+    "nom": "Colas"
   }
 ]
