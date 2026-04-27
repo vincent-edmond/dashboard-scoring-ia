@@ -3391,5 +3391,44 @@
     "reason": "contact_recent",
     "prenom": "Laurent",
     "nom": "Nizard"
+  },
+  {
+    "contact_id": "717318316254",
+    "date": "2026-04-27T10:29:47.310908+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Vanessa",
+    "nom": "Delesderrier"
+  },
+  {
+    "contact_id": "762513904839",
+    "date": "2026-04-27T10:29:47.310908+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Benjamin",
+    "nom": "Sorhaitz"
+  },
+  {
+    "contact_id": "763418331355",
+    "date": "2026-04-27T10:29:47.310908+00:00",
+    "owner_id": "1727313373",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "ATTEMPTED_TO_CONTACT",
+    "new_lead_status": "ATTEMPTED_TO_CONTACT",
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Thomas",
+    "nom": "Kokkonidis"
   }
 ]

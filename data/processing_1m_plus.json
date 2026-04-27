@@ -3105,5 +3105,57 @@
     "reason": "contact_recent",
     "prenom": "Emmanuel",
     "nom": " "
+  },
+  {
+    "contact_id": "1900801",
+    "date": "2026-04-27T10:28:36.398746+00:00",
+    "owner_id": "",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "CONNECTED",
+    "new_lead_status": "CONNECTED",
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Tiago",
+    "nom": "Teófilo"
+  },
+  {
+    "contact_id": "729514216669",
+    "date": "2026-04-27T10:28:36.398746+00:00",
+    "owner_id": "1004005877",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "Appel 1",
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Julien",
+    "nom": "Anse"
+  },
+  {
+    "contact_id": "765658204380",
+    "date": "2026-04-27T10:28:36.398746+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Anne Valérie",
+    "nom": "Colas"
+  },
+  {
+    "contact_id": "757301849305",
+    "date": "2026-04-27T10:28:36.398746+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "ATTEMPTED_TO_CONTACT",
+    "new_lead_status": "ATTEMPTED_TO_CONTACT",
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Catherine",
+    "nom": "Tran"
   }
 ]
