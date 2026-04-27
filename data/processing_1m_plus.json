@@ -3157,5 +3157,83 @@
     "reason": "contact_recent",
     "prenom": "Catherine",
     "nom": "Tran"
+  },
+  {
+    "contact_id": "765199457469",
+    "date": "2026-04-27T14:14:47.020976+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": "Appel 1",
+    "old_classe": "C",
+    "reason": "statut_change:None->Appel 1",
+    "prenom": "Florent",
+    "nom": null
+  },
+  {
+    "contact_id": "765658204380",
+    "date": "2026-04-27T14:14:47.020976+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": null,
+    "new_lead_status": "BAD_TIMING",
+    "old_classe": "D",
+    "reason": "pris_en_charge",
+    "prenom": "Anne Valérie",
+    "nom": "Colas"
+  },
+  {
+    "contact_id": "765744909560",
+    "date": "2026-04-27T14:14:47.020976+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": null,
+    "new_lead_status": "IN_PROGRESS",
+    "old_classe": "C",
+    "reason": "pris_en_charge",
+    "prenom": "Jean-Pierre",
+    "nom": null
+  },
+  {
+    "contact_id": "765979802863",
+    "date": "2026-04-27T14:14:47.020976+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": null,
+    "new_lead_status": "IN_PROGRESS",
+    "old_classe": "C",
+    "reason": "pris_en_charge",
+    "prenom": "Ludovic",
+    "nom": null
+  },
+  {
+    "contact_id": "766076743905",
+    "date": "2026-04-27T14:14:47.020976+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": "Appel 1",
+    "old_classe": "C",
+    "reason": "statut_change:None->Appel 1",
+    "prenom": "Laforgia",
+    "nom": null
+  },
+  {
+    "contact_id": "766151248120",
+    "date": "2026-04-27T14:14:47.020976+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": "CONNECTED",
+    "old_classe": "C",
+    "reason": "statut_change:None->CONNECTED",
+    "prenom": "Gabhy Bob",
+    "nom": null
   }
 ]
