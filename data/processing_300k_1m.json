@@ -3365,5 +3365,31 @@
     "reason": "pris_en_charge",
     "prenom": "Virginie",
     "nom": "Lehmann"
+  },
+  {
+    "contact_id": "489959098611",
+    "date": "2026-04-27T06:40:06.296456+00:00",
+    "owner_id": "1727313373",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Fabien",
+    "nom": "Besserve"
+  },
+  {
+    "contact_id": "765985848557",
+    "date": "2026-04-27T06:40:06.296456+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Laurent",
+    "nom": "Nizard"
   }
 ]
