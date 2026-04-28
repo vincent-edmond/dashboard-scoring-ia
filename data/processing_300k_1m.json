@@ -3807,5 +3807,18 @@
     "reason": "pris_en_charge",
     "prenom": "Jason",
     "nom": null
+  },
+  {
+    "contact_id": "583182331092",
+    "date": "2026-04-28T06:43:03.109152+00:00",
+    "owner_id": "1727313373",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Sabrina",
+    "nom": "Dupont"
   }
 ]
