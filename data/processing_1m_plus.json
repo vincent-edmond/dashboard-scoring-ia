@@ -4886,5 +4886,44 @@
     "reason": "statut_change:Appel 2->Appel 3",
     "prenom": "Paola",
     "nom": null
+  },
+  {
+    "contact_id": "334024144060",
+    "date": "2026-04-29T17:49:19.119600+00:00",
+    "owner_id": "1552291787",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "CONNECTED",
+    "new_lead_status": "CONNECTED",
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Marine",
+    "nom": "Lequintrec"
+  },
+  {
+    "contact_id": "564424919250",
+    "date": "2026-04-29T17:49:19.119600+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "Appel 2",
+    "old_classe": "B",
+    "reason": "statut_change:Appel 1->Appel 2",
+    "prenom": "Laurent",
+    "nom": "GEMIGNANI"
+  },
+  {
+    "contact_id": "538450965697",
+    "date": "2026-04-29T17:49:19.119600+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "UNQUALIFIED",
+    "old_classe": "B",
+    "reason": "pris_en_charge",
+    "prenom": "Aghama",
+    "nom": "Osakhuernh"
   }
 ]
