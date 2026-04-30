@@ -5484,5 +5484,18 @@
     "reason": "pris_en_charge",
     "prenom": "Jean-Léonard Fautras",
     "nom": null
+  },
+  {
+    "contact_id": "768685922533",
+    "date": "2026-04-30T21:11:44.120491+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 2",
+    "new_lead_status": "Appel 2",
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Andrea",
+    "nom": "Lembo"
   }
 ]

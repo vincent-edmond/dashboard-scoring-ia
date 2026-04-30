@@ -6056,5 +6056,18 @@
     "reason": "statut_change:None->Appel 1",
     "prenom": "Nicolas",
     "nom": "Tonello"
+  },
+  {
+    "contact_id": "768551576811",
+    "date": "2026-04-30T21:12:48.148382+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Laurent",
+    "nom": "Rivaton"
   }
 ]
