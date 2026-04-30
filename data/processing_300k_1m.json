@@ -5250,5 +5250,18 @@
     "reason": "statut_change:None->Appel 1",
     "prenom": "Etienne",
     "nom": "Deruffray"
+  },
+  {
+    "contact_id": "91596235000",
+    "date": "2026-04-30T06:39:47.093074+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 3",
+    "new_lead_status": "Appel 3",
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "YANNICK",
+    "nom": "EVENOU"
   }
 ]
