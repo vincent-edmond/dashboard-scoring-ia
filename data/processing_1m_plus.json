@@ -5549,5 +5549,18 @@
     "reason": "contact_recent",
     "prenom": "Raphael",
     "nom": "Rodriguez"
+  },
+  {
+    "contact_id": "769845113026",
+    "date": "2026-05-02T13:29:58.708812+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Raphael",
+    "nom": "Rodriguez"
   }
 ]
