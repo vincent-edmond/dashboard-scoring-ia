@@ -5562,5 +5562,18 @@
     "reason": "contact_recent",
     "prenom": "Raphael",
     "nom": "Rodriguez"
+  },
+  {
+    "contact_id": "18735587063",
+    "date": "2026-05-02T20:56:49.745616+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "ATTEMPTED_TO_CONTACT",
+    "new_lead_status": "ATTEMPTED_TO_CONTACT",
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Bruno",
+    "nom": "Calcagno"
   }
 ]
