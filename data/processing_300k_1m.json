@@ -6225,5 +6225,18 @@
     "reason": "contact_recent",
     "prenom": "Francisco",
     "nom": "Ramírez"
+  },
+  {
+    "contact_id": "528505993404",
+    "date": "2026-05-03T13:29:44.332217+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "ATTEMPTED_TO_CONTACT",
+    "new_lead_status": "ATTEMPTED_TO_CONTACT",
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Christian",
+    "nom": "Kelhetter"
   }
 ]
