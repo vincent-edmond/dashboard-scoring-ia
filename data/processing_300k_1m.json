@@ -6212,5 +6212,18 @@
     "reason": "contact_recent",
     "prenom": "Francisco",
     "nom": "Ramírez"
+  },
+  {
+    "contact_id": "770195148025",
+    "date": "2026-05-03T09:31:30.579319+00:00",
+    "owner_id": "1727313373",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Francisco",
+    "nom": "Ramírez"
   }
 ]
