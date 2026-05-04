@@ -6719,5 +6719,83 @@
     "reason": "pris_en_charge",
     "prenom": "Romain",
     "nom": "Paillard"
+  },
+  {
+    "contact_id": "769026484453",
+    "date": "2026-05-04T17:51:32.408600+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "Appel 2",
+    "old_classe": "C",
+    "reason": "statut_change:Appel 1->Appel 2",
+    "prenom": "Arthur",
+    "nom": "Merlet"
+  },
+  {
+    "contact_id": "770448447693",
+    "date": "2026-05-04T17:51:32.408600+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 2",
+    "new_lead_status": "Appel 3",
+    "old_classe": "C",
+    "reason": "statut_change:Appel 2->Appel 3",
+    "prenom": "Gaël",
+    "nom": "Fiorentino"
+  },
+  {
+    "contact_id": "770802595041",
+    "date": "2026-05-04T17:51:32.408600+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "UNQUALIFIED",
+    "old_classe": "C",
+    "reason": "pris_en_charge",
+    "prenom": "Demetrio",
+    "nom": null
+  },
+  {
+    "contact_id": "771017507006",
+    "date": "2026-05-04T17:51:32.408600+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 3",
+    "new_lead_status": "Appel 4",
+    "old_classe": "C",
+    "reason": "statut_change:Appel 3->Appel 4",
+    "prenom": "Ilona",
+    "nom": "de witt"
+  },
+  {
+    "contact_id": "771165518067",
+    "date": "2026-05-04T17:51:32.408600+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "Appel 2",
+    "old_classe": "C",
+    "reason": "statut_change:Appel 1->Appel 2",
+    "prenom": "Frédéric",
+    "nom": "Pageaud"
+  },
+  {
+    "contact_id": "770906117345",
+    "date": "2026-05-04T17:51:32.408600+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "IN_PROGRESS",
+    "old_classe": "C",
+    "reason": "pris_en_charge",
+    "prenom": "Anne-Flore",
+    "nom": "Martin"
   }
 ]
