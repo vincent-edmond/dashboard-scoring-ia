@@ -6797,5 +6797,44 @@
     "reason": "pris_en_charge",
     "prenom": "Anne-Flore",
     "nom": "Martin"
+  },
+  {
+    "contact_id": "281657187539",
+    "date": "2026-05-05T06:28:12.137132+00:00",
+    "owner_id": "1727313373",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "ATTEMPTED_TO_CONTACT",
+    "new_lead_status": "ATTEMPTED_TO_CONTACT",
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Thierry",
+    "nom": "Massacrier"
+  },
+  {
+    "contact_id": "770506249460",
+    "date": "2026-05-05T06:28:12.137132+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Vincent",
+    "nom": "Mellier"
+  },
+  {
+    "contact_id": "771000066284",
+    "date": "2026-05-05T06:28:12.137132+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Philippe",
+    "nom": "Pezout"
   }
 ]

@@ -6966,5 +6966,18 @@
     "reason": "statut_change:None->Appel 1",
     "prenom": "Véronique",
     "nom": null
+  },
+  {
+    "contact_id": "770913281255",
+    "date": "2026-05-05T06:29:23.789860+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Enculere",
+    "nom": "Marc"
   }
 ]
