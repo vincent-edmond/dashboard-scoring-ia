@@ -7837,5 +7837,18 @@
     "reason": "pris_en_charge",
     "prenom": "Fx",
     "nom": null
+  },
+  {
+    "contact_id": "770913281255",
+    "date": "2026-05-06T06:41:00.085156+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Enculere",
+    "nom": "Marc"
   }
 ]
