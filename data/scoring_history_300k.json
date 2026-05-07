@@ -1240,5 +1240,14 @@
     "a_relancer": 377,
     "recyclage": 1077,
     "a_appeler": 6645
+  },
+  {
+    "date": "2026-05-07T10:37:04.870677+00:00",
+    "lead_a": 5,
+    "lead_b": 102,
+    "lead_c": 611,
+    "a_relancer": 385,
+    "recyclage": 1077,
+    "a_appeler": 6645
   }
 ]
