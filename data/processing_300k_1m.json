@@ -9631,5 +9631,44 @@
     "reason": "statut_change:None->Appel 1",
     "prenom": "Paco",
     "nom": null
+  },
+  {
+    "contact_id": "45186318052",
+    "date": "2026-05-08T09:52:29.205271+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Marie",
+    "nom": "Aubrée"
+  },
+  {
+    "contact_id": "773135766744",
+    "date": "2026-05-08T09:52:29.205271+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Béatrice",
+    "nom": "Arrue"
+  },
+  {
+    "contact_id": "773536746726",
+    "date": "2026-05-08T09:52:29.205271+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Didier",
+    "nom": "Siméoni"
   }
 ]
