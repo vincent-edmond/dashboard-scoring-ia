@@ -9280,5 +9280,18 @@
     "reason": "statut_change:None->Appel 2",
     "prenom": "Aubane",
     "nom": "Roussel"
+  },
+  {
+    "contact_id": "774514630859",
+    "date": "2026-05-08T14:09:49.135977+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Laurent",
+    "nom": "Barget"
   }
 ]
