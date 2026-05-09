@@ -9293,5 +9293,31 @@
     "reason": "contact_recent",
     "prenom": "Laurent",
     "nom": "Barget"
+  },
+  {
+    "contact_id": "774758713588",
+    "date": "2026-05-09T09:30:11.326889+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Marc",
+    "nom": "Perrin De Boislaville"
+  },
+  {
+    "contact_id": "775032387824",
+    "date": "2026-05-09T09:30:11.326889+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Simon",
+    "nom": "Lefèbvre"
   }
 ]

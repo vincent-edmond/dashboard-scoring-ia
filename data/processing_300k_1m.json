@@ -9670,5 +9670,18 @@
     "reason": "contact_recent",
     "prenom": "Didier",
     "nom": "Siméoni"
+  },
+  {
+    "contact_id": "774720113850",
+    "date": "2026-05-09T09:32:01.915832+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Manuela",
+    "nom": "Trachsel"
   }
 ]
