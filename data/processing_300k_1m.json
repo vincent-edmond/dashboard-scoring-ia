@@ -9683,5 +9683,18 @@
     "reason": "contact_recent",
     "prenom": "Manuela",
     "nom": "Trachsel"
+  },
+  {
+    "contact_id": "619342286060",
+    "date": "2026-05-10T06:44:22.743819+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Thierry",
+    "nom": "Richard"
   }
 ]

@@ -9319,5 +9319,44 @@
     "reason": "contact_recent",
     "prenom": "Simon",
     "nom": "Lefèbvre"
+  },
+  {
+    "contact_id": "758969119953",
+    "date": "2026-05-10T06:43:13.637861+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "Appel 1",
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Bouchra",
+    "nom": "Louz"
+  },
+  {
+    "contact_id": "774417729774",
+    "date": "2026-05-10T06:43:13.637861+00:00",
+    "owner_id": "1727313373",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Maylaender",
+    "nom": "Bertrand"
+  },
+  {
+    "contact_id": "774758713588",
+    "date": "2026-05-10T06:43:13.637861+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Marc",
+    "nom": "Perrin De Boislaville"
   }
 ]
