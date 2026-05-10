@@ -9696,5 +9696,18 @@
     "reason": "contact_recent",
     "prenom": "Thierry",
     "nom": "Richard"
+  },
+  {
+    "contact_id": "619342286060",
+    "date": "2026-05-10T09:48:09.265867+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Thierry",
+    "nom": "Richard"
   }
 ]
