@@ -10710,5 +10710,31 @@
     "reason": "pris_en_charge",
     "prenom": "Bernard",
     "nom": "Robinbaraccuda"
+  },
+  {
+    "contact_id": "775900731592",
+    "date": "2026-05-12T18:09:32.296519+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Omar",
+    "nom": "Bendiaf"
+  },
+  {
+    "contact_id": "776164486379",
+    "date": "2026-05-12T18:09:32.296519+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 3",
+    "new_lead_status": "Appel 3",
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Romain",
+    "nom": "Brechet"
   }
 ]
