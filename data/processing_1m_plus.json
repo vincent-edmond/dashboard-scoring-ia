@@ -9852,5 +9852,31 @@
     "reason": "statut_change:Appel 1->Appel 2",
     "prenom": "Bernard",
     "nom": "Robinbaraccuda"
+  },
+  {
+    "contact_id": "775471972549",
+    "date": "2026-05-12T06:47:00.620890+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Thurianne",
+    "nom": "Godec"
+  },
+  {
+    "contact_id": "775900731592",
+    "date": "2026-05-12T06:47:00.620890+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Omar",
+    "nom": "Bendiaf"
   }
 ]
