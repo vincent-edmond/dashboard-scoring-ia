@@ -11815,5 +11815,18 @@
     "reason": "contact_recent",
     "prenom": "Benoit",
     "nom": "Rolin"
+  },
+  {
+    "contact_id": "178993515722",
+    "date": "2026-05-13T06:59:05.448936+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "CONNECTED",
+    "new_lead_status": "CONNECTED",
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Benoit",
+    "nom": "Rolin"
   }
 ]
