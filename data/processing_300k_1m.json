@@ -12595,5 +12595,31 @@
     "reason": "contact_recent",
     "prenom": "Johan",
     "nom": null
+  },
+  {
+    "contact_id": "170504814834",
+    "date": "2026-05-13T18:12:03.710730+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "ATTEMPTED_TO_CONTACT",
+    "new_lead_status": "ATTEMPTED_TO_CONTACT",
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Nico",
+    "nom": "Marignan"
+  },
+  {
+    "contact_id": "663754634463",
+    "date": "2026-05-13T18:12:03.710730+00:00",
+    "owner_id": "1727335875",
+    "old_statut": "a_relancer",
+    "new_statut": "exclu",
+    "old_lead_status": "FUP 3M",
+    "new_lead_status": "FUP 3M",
+    "old_classe": "D",
+    "reason": "pris_en_charge",
+    "prenom": "Julien",
+    "nom": "Griffe"
   }
 ]

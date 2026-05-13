@@ -11425,5 +11425,44 @@
     "reason": "statut_change:None->CONNECTED",
     "prenom": "Toto",
     "nom": null
+  },
+  {
+    "contact_id": "492493919463",
+    "date": "2026-05-13T18:10:54.497816+00:00",
+    "owner_id": "",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "ATTEMPTED_TO_CONTACT",
+    "new_lead_status": "ATTEMPTED_TO_CONTACT",
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Herve Degauchy",
+    "nom": " "
+  },
+  {
+    "contact_id": "775032387824",
+    "date": "2026-05-13T18:10:54.497816+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Simon",
+    "nom": "Lefèbvre"
+  },
+  {
+    "contact_id": "777567113418",
+    "date": "2026-05-13T18:10:54.497816+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "Appel 1",
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Pierre",
+    "nom": null
   }
 ]
