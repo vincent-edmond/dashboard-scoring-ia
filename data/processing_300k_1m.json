@@ -12621,5 +12621,44 @@
     "reason": "pris_en_charge",
     "prenom": "Julien",
     "nom": "Griffe"
+  },
+  {
+    "contact_id": "170504814834",
+    "date": "2026-05-14T10:32:32.392685+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "ATTEMPTED_TO_CONTACT",
+    "new_lead_status": "ATTEMPTED_TO_CONTACT",
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Nico",
+    "nom": "Marignan"
+  },
+  {
+    "contact_id": "195837074648",
+    "date": "2026-05-14T10:32:32.392685+00:00",
+    "owner_id": "1727313373",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "CONNECTED",
+    "new_lead_status": "CONNECTED",
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Catherine",
+    "nom": "Rosen"
+  },
+  {
+    "contact_id": "777986507966",
+    "date": "2026-05-14T10:32:32.392685+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Freddy",
+    "nom": "Lance"
   }
 ]
