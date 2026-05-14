@@ -11555,5 +11555,44 @@
     "reason": "contact_recent",
     "prenom": "Thierry",
     "nom": "Saint-Dizier"
+  },
+  {
+    "contact_id": "759052410064",
+    "date": "2026-05-14T14:32:54.306387+00:00",
+    "owner_id": "75313443",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "ATTEMPTED_TO_CONTACT",
+    "new_lead_status": "ATTEMPTED_TO_CONTACT",
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Jean",
+    "nom": "Hollaender"
+  },
+  {
+    "contact_id": "150643111102",
+    "date": "2026-05-14T14:32:54.306387+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": "Appel 2",
+    "new_lead_status": "Appel 2",
+    "old_classe": "C",
+    "reason": "pris_en_charge",
+    "prenom": "Solenne",
+    "nom": "Tardy"
+  },
+  {
+    "contact_id": "464035035345",
+    "date": "2026-05-14T14:32:54.306387+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": "Appel 3",
+    "new_lead_status": "Appel 3",
+    "old_classe": "D",
+    "reason": "pris_en_charge",
+    "prenom": "Marilyn",
+    "nom": "Monnier"
   }
 ]

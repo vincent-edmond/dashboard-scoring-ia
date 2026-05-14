@@ -12660,5 +12660,44 @@
     "reason": "contact_recent",
     "prenom": "Freddy",
     "nom": "Lance"
+  },
+  {
+    "contact_id": "170504814834",
+    "date": "2026-05-14T14:34:02.046186+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "ATTEMPTED_TO_CONTACT",
+    "new_lead_status": "ATTEMPTED_TO_CONTACT",
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Nico",
+    "nom": "Marignan"
+  },
+  {
+    "contact_id": "619342286060",
+    "date": "2026-05-14T14:34:02.046186+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Thierry",
+    "nom": "Richard"
+  },
+  {
+    "contact_id": "775960105181",
+    "date": "2026-05-14T14:34:02.046186+00:00",
+    "owner_id": "",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Jhhj",
+    "nom": "Jjjh"
   }
 ]
