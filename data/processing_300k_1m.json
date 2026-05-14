@@ -12699,5 +12699,18 @@
     "reason": "contact_recent",
     "prenom": "Jhhj",
     "nom": "Jjjh"
+  },
+  {
+    "contact_id": "778208918774",
+    "date": "2026-05-14T18:04:53.614241+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Kevin",
+    "nom": "Aelvoet"
   }
 ]
