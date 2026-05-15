@@ -11607,5 +11607,57 @@
     "reason": "contact_recent",
     "prenom": "Thierry",
     "nom": "Saint-Dizier"
+  },
+  {
+    "contact_id": "777770635478",
+    "date": "2026-05-15T10:37:48.170745+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": null,
+    "new_lead_status": "FUP 3M",
+    "old_classe": "B",
+    "reason": "pris_en_charge",
+    "prenom": "Louis",
+    "nom": "De Cuniac"
+  },
+  {
+    "contact_id": "777907475676",
+    "date": "2026-05-15T10:37:48.170745+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Thierry",
+    "nom": "Saint-Dizier"
+  },
+  {
+    "contact_id": "777483990237",
+    "date": "2026-05-15T10:37:48.170745+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": "CONNECTED",
+    "old_classe": "B",
+    "reason": "statut_change:None->CONNECTED",
+    "prenom": "Olivier",
+    "nom": "Descamps"
+  },
+  {
+    "contact_id": "778391512265",
+    "date": "2026-05-15T10:37:48.170745+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": null,
+    "new_lead_status": "UNQUALIFIED",
+    "old_classe": "C",
+    "reason": "pris_en_charge",
+    "prenom": "Dupont",
+    "nom": null
   }
 ]
