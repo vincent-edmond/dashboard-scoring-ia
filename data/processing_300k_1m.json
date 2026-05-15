@@ -12712,5 +12712,70 @@
     "reason": "contact_recent",
     "prenom": "Kevin",
     "nom": "Aelvoet"
+  },
+  {
+    "contact_id": "195837074648",
+    "date": "2026-05-15T07:36:45.073410+00:00",
+    "owner_id": "1727313373",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "CONNECTED",
+    "new_lead_status": "CONNECTED",
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Catherine",
+    "nom": "Rosen"
+  },
+  {
+    "contact_id": "538269997264",
+    "date": "2026-05-15T07:36:45.073410+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Martin",
+    "nom": "Schwaederlé"
+  },
+  {
+    "contact_id": "777986507966",
+    "date": "2026-05-15T07:36:45.073410+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Freddy",
+    "nom": "Lance"
+  },
+  {
+    "contact_id": "778208918774",
+    "date": "2026-05-15T07:36:45.073410+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Kevin",
+    "nom": "Aelvoet"
+  },
+  {
+    "contact_id": "778414689521",
+    "date": "2026-05-15T07:36:45.073410+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Malletroit",
+    "nom": "Herve"
   }
 ]

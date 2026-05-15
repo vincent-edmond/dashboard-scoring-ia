@@ -11594,5 +11594,18 @@
     "reason": "pris_en_charge",
     "prenom": "Marilyn",
     "nom": "Monnier"
+  },
+  {
+    "contact_id": "777907475676",
+    "date": "2026-05-15T07:35:41.457420+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Thierry",
+    "nom": "Saint-Dizier"
   }
 ]
