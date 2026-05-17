@@ -13232,5 +13232,83 @@
     "reason": "statut_change:None->Appel 1",
     "prenom": "Jean-Marc",
     "nom": null
+  },
+  {
+    "contact_id": "109841172710",
+    "date": "2026-05-17T06:57:06.746543+00:00",
+    "owner_id": "1727313373",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "Appel 1",
+    "old_classe": "A",
+    "reason": "contact_recent",
+    "prenom": "Yannick",
+    "nom": "Ernest"
+  },
+  {
+    "contact_id": "493722410225",
+    "date": "2026-05-17T06:57:06.746543+00:00",
+    "owner_id": "926121198",
+    "old_statut": "recyclage",
+    "new_statut": "exclu",
+    "old_lead_status": "IN_PROGRESS",
+    "new_lead_status": "IN_PROGRESS",
+    "old_classe": "B",
+    "reason": "pris_en_charge",
+    "prenom": "Joel",
+    "nom": "Lo Sasso"
+  },
+  {
+    "contact_id": "778414689521",
+    "date": "2026-05-17T06:57:06.746543+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Malletroit",
+    "nom": "Herve"
+  },
+  {
+    "contact_id": "779277903093",
+    "date": "2026-05-17T06:57:06.746543+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Marc",
+    "nom": "Richard"
+  },
+  {
+    "contact_id": "779285854410",
+    "date": "2026-05-17T06:57:06.746543+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Amandine",
+    "nom": "Frapier"
+  },
+  {
+    "contact_id": "779521174729",
+    "date": "2026-05-17T06:57:06.746543+00:00",
+    "owner_id": "1727313373",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Greg",
+    "nom": "Baumert"
   }
 ]

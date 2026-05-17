@@ -11893,5 +11893,18 @@
     "reason": "contact_recent",
     "prenom": "Branko",
     "nom": null
+  },
+  {
+    "contact_id": "779194971348",
+    "date": "2026-05-17T06:55:52.282948+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Bernard",
+    "nom": "Salsac"
   }
 ]
