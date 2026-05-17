@@ -13349,5 +13349,18 @@
     "reason": "contact_recent",
     "prenom": "Greg",
     "nom": "Baumert"
+  },
+  {
+    "contact_id": "779285854410",
+    "date": "2026-05-17T13:49:19.066678+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Amandine",
+    "nom": "Frapier"
   }
 ]
