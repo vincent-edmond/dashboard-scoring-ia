@@ -13310,5 +13310,44 @@
     "reason": "contact_recent",
     "prenom": "Greg",
     "nom": "Baumert"
+  },
+  {
+    "contact_id": "109841172710",
+    "date": "2026-05-17T09:57:39.259547+00:00",
+    "owner_id": "1727313373",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "Appel 1",
+    "old_classe": "A",
+    "reason": "contact_recent",
+    "prenom": "Yannick",
+    "nom": "Ernest"
+  },
+  {
+    "contact_id": "779277903093",
+    "date": "2026-05-17T09:57:39.259547+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Marc",
+    "nom": "Richard"
+  },
+  {
+    "contact_id": "779521174729",
+    "date": "2026-05-17T09:57:39.259547+00:00",
+    "owner_id": "1727313373",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Greg",
+    "nom": "Baumert"
   }
 ]
