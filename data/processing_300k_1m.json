@@ -14025,5 +14025,31 @@
     "reason": "statut_change:None->Appel 1",
     "prenom": "Célia",
     "nom": null
+  },
+  {
+    "contact_id": "775917203655",
+    "date": "2026-05-18T18:10:53.007137+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 5",
+    "new_lead_status": "Appel 6",
+    "old_classe": "D",
+    "reason": "statut_change:Appel 5->Appel 6",
+    "prenom": "Rodrigue",
+    "nom": "Guibert"
+  },
+  {
+    "contact_id": "776144150745",
+    "date": "2026-05-18T18:10:53.007137+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 3",
+    "new_lead_status": "Appel 4",
+    "old_classe": "C",
+    "reason": "statut_change:Appel 3->Appel 4",
+    "prenom": "Yassine",
+    "nom": null
   }
 ]
