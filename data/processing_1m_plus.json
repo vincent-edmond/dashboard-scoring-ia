@@ -13739,5 +13739,18 @@
     "reason": "pris_en_charge",
     "prenom": "Jacques",
     "nom": "Lejeune"
+  },
+  {
+    "contact_id": "780758009044",
+    "date": "2026-05-19T18:15:45.045911+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": "Appel 2",
+    "new_lead_status": "FUP 3M",
+    "old_classe": "C",
+    "reason": "pris_en_charge",
+    "prenom": "Sandrine",
+    "nom": null
   }
 ]
