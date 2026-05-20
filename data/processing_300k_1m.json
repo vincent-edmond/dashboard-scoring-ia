@@ -15208,5 +15208,31 @@
     "reason": "statut_change:None->Appel 1",
     "prenom": "Camille",
     "nom": null
+  },
+  {
+    "contact_id": "766641868998",
+    "date": "2026-05-20T18:31:05.589070+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "Appel 2",
+    "old_classe": "D",
+    "reason": "statut_change:Appel 1->Appel 2",
+    "prenom": "Jean-Edouard",
+    "nom": null
+  },
+  {
+    "contact_id": "774960582893",
+    "date": "2026-05-20T18:31:05.589070+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "Appel 2",
+    "old_classe": "D",
+    "reason": "statut_change:Appel 1->Appel 2",
+    "prenom": "Philippe",
+    "nom": "Seivert"
   }
 ]

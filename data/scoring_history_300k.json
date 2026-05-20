@@ -1924,5 +1924,14 @@
     "a_relancer": 386,
     "recyclage": 1159,
     "a_appeler": 6829
+  },
+  {
+    "date": "2026-05-20T18:31:05.720060+00:00",
+    "lead_a": 6,
+    "lead_b": 95,
+    "lead_c": 556,
+    "a_relancer": 385,
+    "recyclage": 1160,
+    "a_appeler": 6838
   }
 ]
