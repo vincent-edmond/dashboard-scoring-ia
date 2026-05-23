@@ -15234,5 +15234,18 @@
     "reason": "statut_change:Appel 2->Appel 3",
     "prenom": "Souad",
     "nom": null
+  },
+  {
+    "contact_id": "783806637242",
+    "date": "2026-05-23T06:44:39.303879+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Pierre",
+    "nom": "Lambard"
   }
 ]
