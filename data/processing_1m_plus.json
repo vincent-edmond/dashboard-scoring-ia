@@ -12218,5 +12218,18 @@
     "reason": "pris_en_charge",
     "prenom": "Pascal",
     "nom": "Baudoin"
+  },
+  {
+    "contact_id": "95209692409",
+    "date": "2026-05-25T15:30:16.579294+00:00",
+    "owner_id": "1727313373",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 2",
+    "new_lead_status": "Appel 2",
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Stéphane",
+    "nom": "Le corre"
   }
 ]
