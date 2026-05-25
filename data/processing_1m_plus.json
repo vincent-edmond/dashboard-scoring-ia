@@ -12231,5 +12231,18 @@
     "reason": "contact_recent",
     "prenom": "Stéphane",
     "nom": "Le corre"
+  },
+  {
+    "contact_id": "190604586180",
+    "date": "2026-05-25T21:20:11.367900+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 6",
+    "new_lead_status": "Appel 6",
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Mayeul",
+    "nom": null
   }
 ]
