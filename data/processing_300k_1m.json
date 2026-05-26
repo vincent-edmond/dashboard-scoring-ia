@@ -14792,5 +14792,57 @@
     "reason": "pris_en_charge",
     "prenom": "Jean Roch",
     "nom": null
+  },
+  {
+    "contact_id": "783796945104",
+    "date": "2026-05-26T18:39:04.571398+00:00",
+    "owner_id": "1552291787",
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": "Appel 2",
+    "new_lead_status": "IN_PROGRESS",
+    "old_classe": "C",
+    "reason": "pris_en_charge",
+    "prenom": "Mickael",
+    "nom": "Jacques"
+  },
+  {
+    "contact_id": "784030452953",
+    "date": "2026-05-26T18:39:04.571398+00:00",
+    "owner_id": "1552291787",
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": null,
+    "new_lead_status": "IN_PROGRESS",
+    "old_classe": "D",
+    "reason": "pris_en_charge",
+    "prenom": "Serkan",
+    "nom": null
+  },
+  {
+    "contact_id": "784048626908",
+    "date": "2026-05-26T18:39:04.571398+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": "CONNECTED",
+    "old_classe": "D",
+    "reason": "statut_change:None->CONNECTED",
+    "prenom": "Tony",
+    "nom": " "
+  },
+  {
+    "contact_id": "784794525888",
+    "date": "2026-05-26T18:39:04.571398+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "Appel 1",
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Prince",
+    "nom": "Dave"
   }
 ]
