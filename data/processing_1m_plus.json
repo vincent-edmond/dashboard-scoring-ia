@@ -14363,5 +14363,18 @@
     "reason": "pris_en_charge",
     "prenom": "Delphine",
     "nom": "Fontanel"
+  },
+  {
+    "contact_id": "786719383795",
+    "date": "2026-05-27T22:05:30.175439+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Aymeric",
+    "nom": "Ouzet"
   }
 ]
