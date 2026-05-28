@@ -17314,5 +17314,18 @@
     "reason": "statut_change:None->Appel 1",
     "prenom": "Jean-Olivier",
     "nom": "Pirlet"
+  },
+  {
+    "contact_id": "341098555623",
+    "date": "2026-05-28T04:15:47.232844+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Siaka",
+    "nom": " "
   }
 ]
