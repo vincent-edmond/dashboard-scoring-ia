@@ -16222,5 +16222,18 @@
     "reason": "contact_recent",
     "prenom": "Regis",
     "nom": "Battesti"
+  },
+  {
+    "contact_id": "725530378441",
+    "date": "2026-05-31T17:22:42.552473+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "Appel 1",
+    "old_classe": "C",
+    "reason": "pris_en_charge",
+    "prenom": "Maria",
+    "nom": "Theodorou"
   }
 ]
