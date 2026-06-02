@@ -1,19 +1,6 @@
 [
   {
     "contact_id": "18735587063",
-    "date": "2026-05-02T20:56:49.745616+00:00",
-    "owner_id": "2132892735",
-    "old_statut": "a_appeler",
-    "new_statut": "a_appeler",
-    "old_lead_status": "ATTEMPTED_TO_CONTACT",
-    "new_lead_status": "ATTEMPTED_TO_CONTACT",
-    "old_classe": "B",
-    "reason": "contact_recent",
-    "prenom": "Bruno",
-    "nom": "Calcagno"
-  },
-  {
-    "contact_id": "18735587063",
     "date": "2026-05-03T13:28:45.275178+00:00",
     "owner_id": "2132892735",
     "old_statut": "a_appeler",
@@ -14558,5 +14545,31 @@
     "reason": "statut_change:None->CONNECTED",
     "prenom": "Jeff",
     "nom": "Augustin"
+  },
+  {
+    "contact_id": "789155274943",
+    "date": "2026-06-02T04:46:00.693520+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "A",
+    "reason": "contact_recent",
+    "prenom": "Younes",
+    "nom": "Chemaou"
+  },
+  {
+    "contact_id": "790377124056",
+    "date": "2026-06-02T04:46:00.693520+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Fabrice",
+    "nom": "Lelaure"
   }
 ]
