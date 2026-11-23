@@ -5653,5 +5653,70 @@
     "reason": "statut_change:None->IN_PROGRESS",
     "prenom": "Dan",
     "nom": null
+  },
+  {
+    "contact_id": "1843456",
+    "date": "2026-11-23T14:26:47.710673+00:00",
+    "owner_id": "1727335875",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Annabelle",
+    "nom": "Texier"
+  },
+  {
+    "contact_id": "33139241189",
+    "date": "2026-11-23T14:26:47.710673+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "ATTEMPTED_TO_CONTACT",
+    "new_lead_status": "ATTEMPTED_TO_CONTACT",
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Patrick",
+    "nom": "BOURLET"
+  },
+  {
+    "contact_id": "932197094598",
+    "date": "2026-11-23T14:26:47.710673+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Aurore",
+    "nom": "Fournier"
+  },
+  {
+    "contact_id": "934665987314",
+    "date": "2026-11-23T14:26:47.710673+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Jerome",
+    "nom": "Chefdhotel"
+  },
+  {
+    "contact_id": "935268462819",
+    "date": "2026-11-23T14:26:47.710673+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Julien",
+    "nom": "Robert"
   }
 ]

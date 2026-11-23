@@ -8136,5 +8136,83 @@
     "reason": "statut_change:None->ATTEMPTED_TO_CONTACT",
     "prenom": "Yann",
     "nom": "Ischi"
+  },
+  {
+    "contact_id": "536469716182",
+    "date": "2026-11-23T14:23:17.805311+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 1",
+    "new_lead_status": "Appel 1",
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Romain",
+    "nom": "Cochepin"
+  },
+  {
+    "contact_id": "782951621854",
+    "date": "2026-11-23T14:23:17.805311+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Delphine",
+    "nom": "Lebreton"
+  },
+  {
+    "contact_id": "894373724362",
+    "date": "2026-11-23T14:23:17.805311+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 3",
+    "new_lead_status": "Appel 3",
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Frédéric",
+    "nom": "Gircourt"
+  },
+  {
+    "contact_id": "916389844192",
+    "date": "2026-11-23T14:23:17.805311+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Sébastien",
+    "nom": null
+  },
+  {
+    "contact_id": "919811587308",
+    "date": "2026-11-23T14:23:17.805311+00:00",
+    "owner_id": "35538805",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Renaud",
+    "nom": "ZACKARIN"
+  },
+  {
+    "contact_id": "934133258475",
+    "date": "2026-11-23T14:23:17.805311+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "B",
+    "reason": "contact_recent",
+    "prenom": "Mickael",
+    "nom": "Esteves"
   }
 ]
