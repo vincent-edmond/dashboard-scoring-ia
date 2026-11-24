@@ -5757,5 +5757,83 @@
     "reason": "contact_recent",
     "prenom": "Cyril",
     "nom": "Parmentelat"
+  },
+  {
+    "contact_id": "1843456",
+    "date": "2026-11-24T14:50:46.831525+00:00",
+    "owner_id": "1727335875",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Annabelle",
+    "nom": "Texier"
+  },
+  {
+    "contact_id": "788741201127",
+    "date": "2026-11-24T14:50:46.831525+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": null,
+    "new_lead_status": "IN_PROGRESS",
+    "old_classe": "B",
+    "reason": "pris_en_charge",
+    "prenom": "Jérôme",
+    "nom": "Duplan"
+  },
+  {
+    "contact_id": "905565205696",
+    "date": "2026-11-24T14:50:46.831525+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Geraldine",
+    "nom": "Perroud"
+  },
+  {
+    "contact_id": "935268462819",
+    "date": "2026-11-24T14:50:46.831525+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Julien",
+    "nom": "Robert"
+  },
+  {
+    "contact_id": "935689029870",
+    "date": "2026-11-24T14:50:46.831525+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": null,
+    "new_lead_status": "IN_PROGRESS",
+    "old_classe": "C",
+    "reason": "pris_en_charge",
+    "prenom": "Cyril",
+    "nom": "Parmentelat"
+  },
+  {
+    "contact_id": "937491522760",
+    "date": "2026-11-24T14:50:46.831525+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": "CONNECTED",
+    "old_classe": "D",
+    "reason": "statut_change:None->CONNECTED",
+    "prenom": "Gabin",
+    "nom": null
   }
 ]

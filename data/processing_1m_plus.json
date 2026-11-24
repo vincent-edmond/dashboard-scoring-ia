@@ -8266,5 +8266,31 @@
     "reason": "contact_recent",
     "prenom": "Laure",
     "nom": "Malgat"
+  },
+  {
+    "contact_id": "844101277912",
+    "date": "2026-11-24T14:47:54.217192+00:00",
+    "owner_id": "1727335875",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 3",
+    "new_lead_status": "Appel 3",
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Vanessa",
+    "nom": "Lefakis"
+  },
+  {
+    "contact_id": "900239112411",
+    "date": "2026-11-24T14:47:54.217192+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Aurore",
+    "nom": null
   }
 ]
