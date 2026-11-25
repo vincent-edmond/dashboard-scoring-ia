@@ -5835,5 +5835,31 @@
     "reason": "statut_change:None->CONNECTED",
     "prenom": "Gabin",
     "nom": null
+  },
+  {
+    "contact_id": "772563247342",
+    "date": "2026-11-25T00:38:22.935157+00:00",
+    "owner_id": "2132892735",
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "pris_en_charge",
+    "prenom": "JB",
+    "nom": "Millon"
+  },
+  {
+    "contact_id": "905565205696",
+    "date": "2026-11-25T00:38:22.935157+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Geraldine",
+    "nom": "Perroud"
   }
 ]

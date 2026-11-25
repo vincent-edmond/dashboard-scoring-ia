@@ -8292,5 +8292,31 @@
     "reason": "contact_recent",
     "prenom": "Aurore",
     "nom": null
+  },
+  {
+    "contact_id": "3624939231",
+    "date": "2026-11-25T00:35:38.853971+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "NEW",
+    "new_lead_status": "NEW",
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "Leroy",
+    "nom": null
+  },
+  {
+    "contact_id": "937588747451",
+    "date": "2026-11-25T00:35:38.853971+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Olivier",
+    "nom": "Girardot"
   }
 ]
