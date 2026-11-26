@@ -8461,5 +8461,18 @@
     "reason": "pris_en_charge",
     "prenom": "Marjorie",
     "nom": "Guitteau"
+  },
+  {
+    "contact_id": "938734927067",
+    "date": "2026-11-26T00:12:30.778366+00:00",
+    "owner_id": "40849699",
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": null,
+    "new_lead_status": "FUP 3M",
+    "old_classe": "C",
+    "reason": "pris_en_charge",
+    "prenom": "Gael",
+    "nom": null
   }
 ]

@@ -5939,5 +5939,83 @@
     "reason": "statut_change:Appel 2->Appel 3",
     "prenom": "Sorridente",
     "nom": null
+  },
+  {
+    "contact_id": "486556186872",
+    "date": "2026-11-26T00:15:50.702938+00:00",
+    "owner_id": "40849699",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": "Appel 2",
+    "old_classe": "D",
+    "reason": "statut_change:None->Appel 2",
+    "prenom": "Kevin",
+    "nom": " "
+  },
+  {
+    "contact_id": "932255686874",
+    "date": "2026-11-26T00:15:50.702938+00:00",
+    "owner_id": "37291528",
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": "ATTEMPTED_TO_CONTACT",
+    "new_lead_status": "FUP 3M",
+    "old_classe": "B",
+    "reason": "pris_en_charge",
+    "prenom": "Liza",
+    "nom": "Folgoas"
+  },
+  {
+    "contact_id": "938752899262",
+    "date": "2026-11-26T00:15:50.702938+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": null,
+    "new_lead_status": "UNQUALIFIED",
+    "old_classe": "D",
+    "reason": "pris_en_charge",
+    "prenom": "Guadagnin",
+    "nom": "Guadagnin"
+  },
+  {
+    "contact_id": "938772567242",
+    "date": "2026-11-26T00:15:50.702938+00:00",
+    "owner_id": "40849699",
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": null,
+    "new_lead_status": "FUP 3M",
+    "old_classe": "D",
+    "reason": "pris_en_charge",
+    "prenom": "Thomas",
+    "nom": null
+  },
+  {
+    "contact_id": "938803682499",
+    "date": "2026-11-26T00:15:50.702938+00:00",
+    "owner_id": "40849699",
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": null,
+    "new_lead_status": "FUP 3M",
+    "old_classe": "D",
+    "reason": "pris_en_charge",
+    "prenom": "Ludovic",
+    "nom": null
+  },
+  {
+    "contact_id": "938806633690",
+    "date": "2026-11-26T00:15:50.702938+00:00",
+    "owner_id": "40849699",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": "Appel 2",
+    "old_classe": "D",
+    "reason": "statut_change:None->Appel 2",
+    "prenom": "Jeremy",
+    "nom": null
   }
 ]
