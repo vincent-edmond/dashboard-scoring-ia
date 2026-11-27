@@ -8513,5 +8513,57 @@
     "reason": "statut_change:Appel 2->Appel 3",
     "prenom": "Flora",
     "nom": null
+  },
+  {
+    "contact_id": "907710814402",
+    "date": "2026-11-27T00:34:24.191170+00:00",
+    "owner_id": null,
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "C",
+    "reason": "contact_recent",
+    "prenom": "David",
+    "nom": null
+  },
+  {
+    "contact_id": "935087822025",
+    "date": "2026-11-27T00:34:24.191170+00:00",
+    "owner_id": "926121198",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "A",
+    "reason": "contact_recent",
+    "prenom": "Laurent",
+    "nom": "Testaud"
+  },
+  {
+    "contact_id": "888735469784",
+    "date": "2026-11-27T00:34:24.191170+00:00",
+    "owner_id": "40849699",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": "Appel 3",
+    "new_lead_status": "Appel 4",
+    "old_classe": "C",
+    "reason": "statut_change:Appel 3->Appel 4",
+    "prenom": "Guillaume",
+    "nom": null
+  },
+  {
+    "contact_id": "939340702961",
+    "date": "2026-11-27T00:34:24.191170+00:00",
+    "owner_id": "40849699",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": "Triage Call réservé",
+    "old_classe": "B",
+    "reason": "statut_change:None->Triage Call réservé",
+    "prenom": "Bertand",
+    "nom": "Du Penhoat"
   }
 ]
