@@ -6329,5 +6329,31 @@
     "reason": "statut_change:Appel 2->Appel 3",
     "prenom": "Lotfi",
     "nom": null
+  },
+  {
+    "contact_id": "1843456",
+    "date": "2026-11-28T00:08:31.342351+00:00",
+    "owner_id": "",
+    "old_statut": "a_appeler",
+    "new_statut": "a_appeler",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "contact_recent",
+    "prenom": "Annabelle",
+    "nom": "Texier"
+  },
+  {
+    "contact_id": "819503970518",
+    "date": "2026-11-28T00:08:31.342351+00:00",
+    "owner_id": "1023675077",
+    "old_statut": "a_appeler",
+    "new_statut": "exclu",
+    "old_lead_status": null,
+    "new_lead_status": null,
+    "old_classe": "D",
+    "reason": "pris_en_charge",
+    "prenom": "Emmanuel",
+    "nom": "Caradec"
   }
 ]
